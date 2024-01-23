@@ -1,0 +1,9 @@
+{
+  "appId": "au.org.powertochange.bilingual4SL",
+  "appName": "Bi-lingual 4SL+",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https",
+    "url": "http://10.1.1.200:9500"
+  }
+}

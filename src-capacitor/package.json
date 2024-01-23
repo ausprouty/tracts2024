@@ -1,0 +1,13 @@
+{
+  "name": "tracts2024",
+  "version": "0.0.1",
+  "description": "Bi-lingual tracts to help connect people to Jesus",
+  "author": "ausprouty <bob.prouty@powertochange.org.au>",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/app": "^5.0.0",
+    "@capacitor/cli": "^5.0.0",
+    "@capacitor/core": "^5.0.0"
+  }
+}

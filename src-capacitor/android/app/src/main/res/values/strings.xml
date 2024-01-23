@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Bi-lingual 4SL+</string>
+    <string name="title_activity_main">Bi-lingual 4SL+</string>
+    <string name="package_name">au.org.powertochange.bilingual4SL</string>
+    <string name="custom_url_scheme">au.org.powertochange.bilingual4SL</string>
+</resources>

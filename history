@@ -1,0 +1,17 @@
+yarn create quasar
+
+quasar mode add capacitor
+
+Downloading the Android Studio HedgeHog
+
+setx ANDROID_HOME "%USERPROFILE%\AppData\Local\Android\Sdk"
+setx ANDROID_SDK_ROOT "%USERPROFILE%\AppData\Local\Android\Sdk"
+setx path "%path%;%ANDROID_SDK_ROOT%\tools;%ANDROID_SDK_ROOT%\platform-tools"
+
+Intel® HAXM installation failed. To install Intel® HAXM follow the instructions found at: https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows
+
+quasar dev
+quasar dev -m capacitor -T android
+
+quasar new component something
+
