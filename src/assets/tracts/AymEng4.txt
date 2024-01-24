@@ -121,7 +121,7 @@
 
 							 <tr>
 								 <td colspan = "4" class="tract-image section-law2">
-								  <img class="tract-image" src = "files/images/cliff_open.png">
+								  <img class="tract-image" src = "/src/assets/tracts/images/cliff_open.png">
 								 </td>
 							 </tr>
 
@@ -200,7 +200,7 @@
 
 							 <tr>
 								 <td colspan = "4" class="tract-image section-law3">
-								  <img class="tract-image" src = "files/images/cliff_crossed.png">
+								  <img class="tract-image" src = "/src/assets/tracts/images/cliff_crossed.png">
 								 </td>
 							 </tr>
 
@@ -282,10 +282,10 @@
  <tr class="tract-row"><td class="section-circles" colspan="2">   <p class="tract-circle-heading-ltr"><b>Aca p&auml; toketsti amuyt'a&ntilde;&auml;niwa p&auml; casta jac&auml;winacata:</b><br> &lrm;<span dir = "ltr">(These two circles represent two kinds of lives:)</span>&lrm;</p>
 	  <table width = "100%" class="section-circles"><tr>
 	    <td class="tract-circle-image  div-circles">
-			<p class="tract-circle-image"><b> <img class="tract-circle-image" src = "files/images/circle_with_dots_1.png"> </b></p>
+			<p class="tract-circle-image"><b> <img class="tract-circle-image" src = "/src/assets/tracts/images/circle_with_dots_1.png"> </b></p>
 			<p class="tract-circle-subhead-ltr"><b>NAYAN APNAKAT JAKE</b><br> &lrm;<span dir = "ltr">(SELF-CONTROLLED LIFE)</span>&lrm;</p>
 		</td><td class="tract-circle-image  div-circles">
-			<p class="tract-circle-image"><b> <img class="tract-circle-image" src = "files/images/circle_with_dots_2.png"> </b></p>
+			<p class="tract-circle-image"><b> <img class="tract-circle-image" src = "/src/assets/tracts/images/circle_with_dots_2.png"> </b></p>
 			<p class="tract-circle-subhead-ltr"><b>CRIST0N APNAKAT JAKE</b><br> &lrm;<span dir = "ltr">(CHRIST-CONTROLLED LIFE)</span>&lrm;</p>
 		</td></tr><tr><td class="tract-circle-text-ltr  div-circles  ">
 			<p class="tract-circle-point-ltr"><b>S - NAYA ucaw chuyman</b> &lrm;<span dir = "ltr">(Self on the throne)</span>&lrm;</p>
