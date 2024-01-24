@@ -7,15 +7,12 @@ const routes = [
       { path: '', component: () => import('pages/IndexPage.vue') },
       {
         name: 'ViewTract',
-        path: '/tract',
+        path: '/tract/:tract',
         component: () => import('src/pages/ViewTract.vue')
       },
     ]
   },
-  {
-    path: '/tract/:tract',
-    component: () => import('pages/ViewTract.vue')
-  },
+
 
   // Always leave this as last one,
   // but you can also remove it
