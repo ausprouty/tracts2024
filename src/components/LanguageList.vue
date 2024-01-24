@@ -45,7 +45,7 @@ div.tract-link{
   padding: 10px;
   text-align: left;
   transition: all 0.2s linear;
-  width: 95%;
+  width: 100%;
 }
 .app-card:hover {
   transform: scale(1.05);
@@ -54,14 +54,13 @@ div.tract-link{
 
 .app-link {
   color: black;
-
   text-decoration: none;
   font-weight: 100;
 }
 div.book {
   vertical-align: top;
   width: 70%;
-  font-size: 24px;
+  font-size: 18px;
   float: right;
 }
 .book {

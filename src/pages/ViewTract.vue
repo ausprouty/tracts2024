@@ -1,9 +1,6 @@
 <template>
   <q-page padding>
-    <img src="/src/assets/tracts/images/heart_1.png">
-   <p>{{this.$route.params.tract}}</p>
    <div v-html="tractContent"></div>
-    <!-- content -->
   </q-page>
 </template>
 
@@ -36,55 +33,7 @@ export default {
   },
 }
 </script>
-<style scoped>
-
-
-/*
-** For Here's Life Tracts
-*/
-
-
-@font-face {
-    font-family: 'dinaminauniwebregular';
-    src: url('web12-webfont.woff2') format('woff2'),
-         url('web12-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-.sinhala{
-	font-family:  dinaminauniwebregular, Arial, sans-serif;
-}
-
-@font-face {
-    font-family: 'noto_sans_tibetan';
-    src: url('notosanstibetan-regular-webfont.woff2') format('woff2'),
-         url('notosanstibetan-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-.tibetian{
-	font-family:  noto_sans_tibetan, Arial, sans-serif;
-}
-
-/*
-** colors for div
-*/
-.tract-title{
-	padding-top:15px;
-	}
-.section-title{
-	background-color: #fff;
-	font-size: 1.2em;
-	line-height: 1.3em;
-	color: #0d9ecc;
-	color: #005c86;
-	white-space: normal;
-	text-align: left;
-	position: relative;
-	display:table-cell;
-}
+<style>
 .section-intro,
 .section-law1,
 .section-law2,
@@ -103,12 +52,16 @@ export default {
 	background-color: #fff;
 	border:none;
 }
-tr.even,
-tr.odd,
-tr:nth-child(2n+2),
-tr.info,
-tr.tract-row{
+.section-title{
 	background-color: #fff;
+	font-size: 1.2em;
+	line-height: 1.3em;
+	color: #0d9ecc;
+	color: #005c86;
+	white-space: normal;
+	text-align: left;
+	position: relative;
+	display:table-cell;
 }
 .section-copyright{
 	padding-top: 40px;
@@ -117,10 +70,6 @@ tr.tract-row{
 
 
 }
-.nodisplay{
-	display:none;
-}
-
 table {
   table-layout: fixed;
 }
@@ -175,7 +124,6 @@ td.rtl{
 	text-align: right;
 
 }
-
 a{
 	color:#aa0040;
 }
@@ -431,4 +379,5 @@ div.content{
 		padding-right:5px;
 	}
 }
+
 </style>
