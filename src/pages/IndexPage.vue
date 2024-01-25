@@ -19,15 +19,7 @@ export default{
     return {
       languages: [
 
-				{id: 30, name:"Polish", file:"PolEng4", local:"Y"},
-				{id: 31, name:"Afrikaans", file:"AfkEng4", local:"Y"},
-				{id: 32, name:"Pedi", file:"SrtEng4", local:"Y"},
-				{id: 33, name:"Brazilian Portuguese", file:"Por2Eng4", local:"Y"},
-				{id: 34, name:"Romanian", file:"RumEng4", local:"Y"},
-				{id: 35, name:"Russian", file:"RusEng4", local:"Y"},
-				{id: 36, name:"Russian (Central Asia)", file:"RusEngM", local:"Y"},
-				{id: 37, name:"Setswana", file:"SetEng4", local:"Y"},
-				{id: 38, name:"Serbian", file:"SerEng4", local:"Y"},
+
 				{id: 39, name:"Somali", file:"SomEng4", local:"Y"},
 				{id: 40, name:"Spanish", file:"Spn2Eng4", local:"Y"},
 				{id: 41, name:"Croatian", file:"SrcEng4", local:"Y"},
@@ -106,6 +98,15 @@ export default{
 				{id: 27, name:"Nuer", file:"NusEng4", local:"Y"},
 				{id: 28, name:"Oromo (central)", file:"Oro1Eng4", local:"Y"},
 				{id: 29, name:"Farsi", file:"PesEngM", local:"Y"},
+        {id: 30, name:"Polish", file:"PolEng4", local:"Y"},
+				{id: 31, name:"Afrikaans", file:"AfkEng4", local:"Y"},
+				{id: 32, name:"Pedi", file:"SrtEng4", local:"Y"},
+				{id: 33, name:"Brazilian Portuguese", file:"Por2Eng4", local:"Y"},
+				{id: 34, name:"Romanian", file:"RumEng4", local:"Y"},
+				{id: 35, name:"Russian", file:"RusEng4", local:"Y"},
+				{id: 36, name:"Russian (Central Asia)", file:"RusEngM", local:"Y"},
+				{id: 37, name:"Setswana", file:"SetEng4", local:"Y"},
+				{id: 38, name:"Serbian", file:"SerEng4", local:"Y"},
 				],
     };
   },
