@@ -17,15 +17,7 @@ export default {
   data() {
     return {
       languages: [
-        { id: 45, name: "Thai", file: "ThjEng4", local: "Y" },
-        { id: 46, name: "Finnish", file: "FinEng4", local: "Y" },
-        { id: 47, name: "Turkish", file: "TrkEngM", local: "Y" },
-        { id: 48, name: "Urdu", file: "UrdEng4", local: "Y" },
-        { id: 49, name: "Norwegian", file: "NorEng4", local: "Y" },
-        { id: 50, name: "Bulgarian", file: "BulEng4", local: "Y" },
-        { id: 51, name: "Kazakh", file: "KazEng4", local: "Y" },
-        { id: 52, name: "Bambara", file: "BamEng4", local: "Y" },
-        { id: 53, name: "Changane", file: "ChaEng4", local: "Y" },
+
         { id: 54, name: "Czech", file: "CzcEng4", local: "Y" },
         { id: 55, name: "Dinka Bor", file: "DibEng4", local: "Y" },
         { id: 56, name: "Ekegussii", file: "GuzEng4", local: "Y" },
@@ -109,6 +101,15 @@ export default {
         { id: 42, name: "Swahili", file: "SwaEng4", local: "Y" },
         { id: 43, name: "Tagalog", file: "TagEng4", local: "Y" },
         { id: 44, name: "Sinhala", file: "SinEng4", local: "Y" },
+        { id: 45, name: "Thai", file: "ThjEng4", local: "Y" },
+        { id: 46, name: "Finnish", file: "FinEng4", local: "Y" },
+        { id: 47, name: "Turkish", file: "TrkEngM", local: "Y" },
+        { id: 48, name: "Urdu", file: "UrdEng4", local: "Y" },
+        { id: 49, name: "Norwegian", file: "NorEng4", local: "Y" },
+        { id: 50, name: "Bulgarian", file: "BulEng4", local: "Y" },
+        { id: 51, name: "Kazakh", file: "KazEng4", local: "Y" },
+        { id: 52, name: "Bambara", file: "BamEng4", local: "Y" },
+        { id: 53, name: "Changane", file: "ChaEng4", local: "Y" },
       ],
     };
   },
