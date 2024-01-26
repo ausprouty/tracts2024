@@ -19,13 +19,7 @@ export default {
       languages: [
 
 
-        { id: 61, name: "Kalenjin", file: "KalEng4", local: "Y" },
-        { id: 62, name: "Kamba", file: "KikEng4", local: "Y" },
-        { id: 63, name: "Kinyarawandan", file: "RuaEng4", local: "Y" },
-        { id: 64, name: "Luba Kaonde", file: "KqnEng4", local: "Y" },
-        { id: 65, name: "Shona", file: "ShdEng4", local: "Y" },
-        { id: 66, name: "Sotho", file: "SsoEng4", local: "Y" },
-        { id: 67, name: "Zaire Swahili", file: "Swa2Eng4", local: "Y" },
+
         { id: 68, name: "Swedish", file: "SweEng4", local: "Y" },
         { id: 69, name: "Tongan", file: "TovEng4", local: "Y" },
         { id: 70, name: "Siswati", file: "SwzEng4", local: "Y" },
@@ -111,6 +105,13 @@ export default {
         { id: 58, name: "Yiddish", file: "YidEngJ", local: "Y" },
         { id: 59, name: "Hausa", file: "HuaEng4", local: "Y" },
         { id: 60, name: "Ibo", file: "IgrEng4", local: "Y" },
+        { id: 61, name: "Kalenjin", file: "KalEng4", local: "Y" },
+        { id: 62, name: "Kamba", file: "KikEng4", local: "Y" },
+        { id: 63, name: "Kinyarawandan", file: "RuaEng4", local: "Y" },
+        { id: 64, name: "Luba Kaonde", file: "KqnEng4", local: "Y" },
+        { id: 65, name: "Shona", file: "ShdEng4", local: "Y" },
+        { id: 66, name: "Sotho", file: "SsoEng4", local: "Y" },
+        { id: 67, name: "Zaire Swahili", file: "Swa2Eng4", local: "Y" },
       ],
     };
   },
