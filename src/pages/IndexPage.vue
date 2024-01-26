@@ -18,13 +18,7 @@ export default {
     return {
       languages: [
 
-        { id: 54, name: "Czech", file: "CzcEng4", local: "Y" },
-        { id: 55, name: "Dinka Bor", file: "DibEng4", local: "Y" },
-        { id: 56, name: "Ekegussii", file: "GuzEng4", local: "Y" },
-        { id: 57, name: "Hebrew", file: "HebEngJ", local: "Y" },
-        { id: 58, name: "Yiddish", file: "YidEngJ", local: "Y" },
-        { id: 59, name: "Hausa", file: "HuaEng4", local: "Y" },
-        { id: 60, name: "Ibo", file: "IgrEng4", local: "Y" },
+
         { id: 61, name: "Kalenjin", file: "KalEng4", local: "Y" },
         { id: 62, name: "Kamba", file: "KikEng4", local: "Y" },
         { id: 63, name: "Kinyarawandan", file: "RuaEng4", local: "Y" },
@@ -110,6 +104,13 @@ export default {
         { id: 51, name: "Kazakh", file: "KazEng4", local: "Y" },
         { id: 52, name: "Bambara", file: "BamEng4", local: "Y" },
         { id: 53, name: "Changane", file: "ChaEng4", local: "Y" },
+        { id: 54, name: "Czech", file: "CzcEng4", local: "Y" },
+        { id: 55, name: "Dinka Bor", file: "DibEng4", local: "Y" },
+        { id: 56, name: "Ekegussii", file: "GuzEng4", local: "Y" },
+        { id: 57, name: "Hebrew", file: "HebEngJ", local: "Y" },
+        { id: 58, name: "Yiddish", file: "YidEngJ", local: "Y" },
+        { id: 59, name: "Hausa", file: "HuaEng4", local: "Y" },
+        { id: 60, name: "Ibo", file: "IgrEng4", local: "Y" },
       ],
     };
   },
