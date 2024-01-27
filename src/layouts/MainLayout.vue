@@ -15,8 +15,6 @@
           Bi-lingual 4SL+
         </q-toolbar-title>
         <ShareLink />
-
-
       </q-toolbar>
     </q-header>
 
@@ -63,7 +61,6 @@ export default defineComponent({
 .toolbar-width,
 .max-width{
   width: 100%;
-  max-width: 600px;
   margin: 0 auto;
 
 }
