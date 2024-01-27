@@ -18,26 +18,7 @@ export default {
     return {
       languages: [
 
-
-
-        { id: 68, name: "Swedish", file: "SweEng4", local: "Y" },
-        { id: 69, name: "Tongan", file: "TovEng4", local: "Y" },
-        { id: 70, name: "Siswati", file: "SwzEng4", local: "Y" },
-        { id: 71, name: "Tsonga", file: "TsoEng4", local: "Y" },
-        { id: 72, name: "Tswana", file: "TswEng4", local: "Y" },
-        { id: 73, name: "Akuapwim Twi", file: "TwsEng4", local: "Y" },
-        { id: 74, name: "Tyap", file: "TyaEng4", local: "Y" },
-        { id: 75, name: "Xhosa", file: "XosEng4", local: "Y" },
-        { id: 76, name: "Zulu", file: "ZuuEng4", local: "Y" },
-        { id: 77, name: "Tibetan", file: "TibEng4", local: "Y" },
-        { id: 78, name: "Ukrainian", file: "UkrEng4", local: "Y" },
-        {
-          id: 79,
-          name: "Vietnamese (university)",
-          file: "VieEng4",
-          local: "Y",
-        },
-        { id: 80, name: "English", file: "Eng4.htm", local: "Y" },
+        { id: 80, name: "English", file: "Eng4", local: "Y" },
         { id: 81, name: "Konkani", file: "GomEng4", local: "Y" },
         { id: 82, name: "Aymara", file: "AymEng4", local: "Y" },
         { id: 83, name: "Bicolano", file: "BclEng4", local: "Y" },
@@ -112,6 +93,23 @@ export default {
         { id: 65, name: "Shona", file: "ShdEng4", local: "Y" },
         { id: 66, name: "Sotho", file: "SsoEng4", local: "Y" },
         { id: 67, name: "Zaire Swahili", file: "Swa2Eng4", local: "Y" },
+        { id: 68, name: "Swedish", file: "SweEng4", local: "Y" },
+        { id: 69, name: "Tongan", file: "TovEng4", local: "Y" },
+        { id: 70, name: "Siswati", file: "SwzEng4", local: "Y" },
+        { id: 71, name: "Tsonga", file: "TsoEng4", local: "Y" },
+        { id: 72, name: "Tswana", file: "TswEng4", local: "Y" },
+        { id: 73, name: "Akuapwim Twi", file: "TwsEng4", local: "Y" },
+        { id: 74, name: "Tyap", file: "TyaEng4", local: "Y" },
+        { id: 75, name: "Xhosa", file: "XosEng4", local: "Y" },
+        { id: 76, name: "Zulu", file: "ZuuEng4", local: "Y" },
+        { id: 77, name: "Tibetan", file: "TibEng4", local: "Y" },
+        { id: 78, name: "Ukrainian", file: "UkrEng4", local: "Y" },
+        {
+          id: 79,
+          name: "Vietnamese (university)",
+          file: "VieEng4",
+          local: "Y",
+        },
       ],
     };
   },
