@@ -26,11 +26,20 @@
 <script>
 import { defineComponent, ref } from "vue";
 import ShareLink from "components/ShareLink.vue";
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: "MainLayout",
   components: {
     ShareLink,
+  },
+  data() {
+    return {
+      route: useRoute()
+    }
+  },
+  created(){
+    console.log(this.route)
   },
   methods: {
     navigateToPage: function () {
