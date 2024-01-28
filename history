@@ -13,5 +13,9 @@ Intel® HAXM installation failed. To install Intel® HAXM follow the instruction
 quasar dev
 quasar dev -m capacitor -T android
 
+quasar mode add pwa
+
+quasar build -m pwa
+
 quasar new component something
 

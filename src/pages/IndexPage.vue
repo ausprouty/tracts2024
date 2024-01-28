@@ -109,9 +109,8 @@ export default {
     };
   },
   created() {
-
     var lastPage = localStorage.getItem("tractLanguageFile", null);
-    alert (lastPage);
+    console.log (lastPage)
     if (lastPage != null){
       this.$router.push({
         name: 'ViewTract',
@@ -120,6 +119,7 @@ export default {
         },
       })
     }
+
   },
 };
 </script>
