@@ -21,7 +21,10 @@ export default defineComponent({
     }
   },
   methods: {
+
     navigateToPage: function () {
+      localStorage.setItem('tractLanguageName', this.language.name)
+      localStorage.setItem('tractLanguageFile', this.language.file)
       this.$router.push({
         name: 'ViewTract',
         params: {

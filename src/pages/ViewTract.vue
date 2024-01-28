@@ -1,5 +1,6 @@
 <template>
   <q-page padding>
+    <h2 class = "tractTitle ">{{this.tractName}}</h2>
    <div v-html="tractContent"></div>
   </q-page>
 </template>
@@ -10,6 +11,7 @@ export default {
   name: 'ViewTract',
   data() {
     return {
+      tractName:localStorage.getItem('tractLanguageName', ''),
       tractContent: "",
     }
   },
@@ -34,6 +36,10 @@ export default {
 }
 </script>
 <style>
+.tractTitle{
+  text-align: right;
+}
+
 .section-intro,
 .section-law1,
 .section-law2,

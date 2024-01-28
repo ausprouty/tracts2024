@@ -18,7 +18,7 @@ export default {
     return {
       languages: [
 
-      {  name: "Acholi", file: "AcoEng4" },
+        {  name: "Acholi", file: "AcoEng4" },
         {  name: "Afrikaans", file: "AfkEng4" },
         {  name: "Akuapwim Twi", file: "TwsEng4" },
         {  name: "Albanian", file: "AlnEng4" },
@@ -109,7 +109,17 @@ export default {
     };
   },
   created() {
-    //console.log (this.languages)
+
+    var lastPage = localStorage.getItem("tractLanguageFile", null);
+    alert (lastPage);
+    if (lastPage != null){
+      this.$router.push({
+        name: 'ViewTract',
+        params: {
+          tract: lastPage,
+        },
+      })
+    }
   },
 };
 </script>
