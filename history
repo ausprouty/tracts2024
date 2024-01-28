@@ -16,6 +16,7 @@ quasar dev -m capacitor -T android
 quasar mode add pwa
 
 quasar build -m pwa
+quasar dev -m pwa
 
 quasar new component something
 

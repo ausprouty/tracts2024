@@ -21,7 +21,7 @@ export default {
   methods: {
     async fetchExternalContent() {
       try {
-        var page = '/src/assets/tracts/' + this.$route.params.tract + '.html'
+        var page = '/tracts/' + this.$route.params.tract + '.html'
         const response = await fetch(page)
         if (response.ok) {
           this.tractContent = await response.text();
