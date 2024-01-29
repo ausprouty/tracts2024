@@ -10,13 +10,17 @@
         aria-label="Help"
         v-on:click="navigateToPage"
       />
+      <FontSize/>
     </q-toolbar>
   </q-header>
 </template>
 <script>
 import { defineComponent } from "vue";
+import FontSize from "components/FontSize.vue";
+
 export default defineComponent({
   name: "NavigationIndex",
+  components: {FontSize  },
   methods: {
     navigateToPage: function () {
       this.$router.push({

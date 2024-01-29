@@ -14,15 +14,17 @@
         this.tract
       }}</q-toolbar-title>
       <ShareLink />
+      <FontSize/>
     </q-toolbar>
   </q-header>
 </template>
 <script>
 import { defineComponent } from "vue";
 import ShareLink from "components/ShareLink.vue";
+import FontSize from "components/FontSize.vue";
 export default defineComponent({
   name: "NavigationTract",
-  components: { ShareLink },
+  components: { ShareLink , FontSize },
   data() {
     return {
       tract: localStorage.getItem("tractLanguageName", "Bi-lingual 4SL+"),

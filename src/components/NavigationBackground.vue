@@ -13,16 +13,18 @@
       <q-toolbar-title v-on:click="navigateToPage"
         >Background Information</q-toolbar-title
       >
+      <FontSize/>
       <ShareLink />
     </q-toolbar>
   </q-header>
 </template>
 <script>
 import { defineComponent } from "vue";
+import FontSize from "components/FontSize.vue";
 import ShareLink from "components/ShareLink.vue";
 export default defineComponent({
   name: "NavigationTract",
-  components: { ShareLink },
+  components: { ShareLink, FontSize  },
   data() {
     return {
       tract: localStorage.getItem("tractLanguageName", "Bi-lingual 4SL+"),
