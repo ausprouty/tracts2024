@@ -1,20 +1,5 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar class="toolbar-width">
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          v-on:click="navigateToPage"
-        />
-
-        <q-toolbar-title> Bi-lingual 4SL+ </q-toolbar-title>
-        <ShareLink />
-      </q-toolbar>
-    </q-header>
 
     <q-page-container>
       <router-view />
@@ -25,14 +10,11 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import ShareLink from "components/ShareLink.vue";
 import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: "MainLayout",
-  components: {
-    ShareLink,
-  },
+  
   data() {
     return {
       route: useRoute()

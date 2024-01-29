@@ -1,17 +1,18 @@
 <template>
+    <NavigationTract/>
   <q-page padding>
-    <h2 class = "tractTitle ">{{this.tractName}}</h2>
    <div v-html="tractContent"></div>
   </q-page>
 </template>
 
 <script>
+import NavigationTract from "components/NavigationTract.vue";
 
 export default {
   name: 'ViewTract',
+  components: {NavigationTract },
   data() {
     return {
-      tractName:localStorage.getItem('tractLanguageName', ''),
       tractContent: "",
     }
   },

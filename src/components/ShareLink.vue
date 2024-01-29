@@ -1,14 +1,14 @@
 <template>
-<meta property="og:title" content="Finding a Guru worth Following">
+<meta property="og:title" content="Bi-lingual 4SL+">
 <meta property="og:description" content="In order to make any real progress in our spiritual life we know we need a guru.">
 <meta property="og:image" content="https://myfriends.network/sites/myfriends/images/standard/MyFriends-App-Facebook.jpg">
-<meta property="og:url" content="https://guru.mmylanguage.net.au">
+<meta property="og:url" content="https://tracts.mylanguage.net.au">
 <meta property="og:type" content="website">
 
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@PtCAus">
-<meta name="twitter:title" content="Finding a Guru worth Following">
+<meta name="twitter:title" content="Bi-lingual 4SL+">
 <meta name="twitter:description" content="In order to make any real progress in our spiritual life we know we need a guru">
 <meta name="twitter:image" content="https://myfriends.network/sites/myfriends/images/standard/MyFriends-App-Twitter.jpg">
 
@@ -28,8 +28,8 @@ export default {
   name: 'ShareLink',
   methods:{
     shareUrl() {
-      var subject = 'Bi-lingual 4SL+'
-      var message = 'Here is the link'
+      var subject = 'Here is the link to the outline'
+      var message = 'Here is the link to the outline we were looking at today.  Let\'s talk more!'
       let url = window.location.href
       if ('share' in navigator) {
         navigator.share({

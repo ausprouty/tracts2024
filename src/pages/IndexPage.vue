@@ -1,5 +1,7 @@
 <template>
   <q-page class="flex flex-center">
+    <NavigationIndex/>
+    <FindTract :languagesData="languages"/>
     <LanguageList
       v-for="language in languages"
       :key="language.id"
@@ -10,10 +12,12 @@
 
 <script>
 import LanguageList from "components/LanguageList.vue";
+import NavigationIndex from "components/NavigationIndex.vue";
+import FindTract from "components/FindTract.vue";
 
 export default {
   name: "IndexPage",
-  components: { LanguageList },
+  components: { LanguageList,NavigationIndex, FindTract },
   data() {
     return {
       languages: [

@@ -42,10 +42,10 @@ div.tract-link{
   width:100%;
 }
 .shadow-card {
-  background-color: lightblue;
+  background-color: lightgrey;
   cursor: pointer;
-  margin-bottom: 12px;
-  padding: 10px;
+  margin-top: 6px;
+  padding: 5px;
   text-align: left;
   transition: all 0.2s linear;
   width: 100%;
@@ -63,7 +63,7 @@ div.tract-link{
 div.book {
   vertical-align: top;
   width: 70%;
-  font-size: 18px;
+  font-size: 12px;
   float: right;
 }
 .book {
