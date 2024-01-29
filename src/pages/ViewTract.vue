@@ -63,7 +63,7 @@ export default {
 	background-color: #fff;
 	font-size: 1.2em;
 	line-height: 1.3em;
-	color: #0d9ecc;
+
 	color: #005c86;
 	white-space: normal;
 	text-align: left;

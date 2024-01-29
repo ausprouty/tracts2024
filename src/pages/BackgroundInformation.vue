@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <h1 class="title">Help</h1>
+    <NavigationBackground/>
     <h3 class="background">Quick Start</h3>
     <ul>
       <li class="background">Type language you want in the search bar</li>
@@ -62,7 +62,17 @@
 </template>
 
 <script>
+import NavigationBackground from "components/NavigationBackground.vue";
 export default {
-  // name: 'PageName',
+  name: "BackgroundInformation",
+  components: { NavigationBackground },
 };
 </script>
+<style scoped>
+h3{
+  font-size: 1rem;
+  font-weight:bold;
+  color: #005c86;
+  line-height: 1.5rem;
+}
+</style>

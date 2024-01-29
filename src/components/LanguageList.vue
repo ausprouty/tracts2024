@@ -37,6 +37,10 @@ export default defineComponent({
 })
 </script>
 <style scoped>
+
+.title{
+  font-size: 1em;
+}
 div.tract-link{
   display:block;
   width:100%;

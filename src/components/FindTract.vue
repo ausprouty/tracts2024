@@ -74,9 +74,7 @@ li.shadow-card {
   width: 100%;
 }
 
-.white {
-  background-color: white;
-}
+
 input.searchBar {
   margin-top: 8px;
   margin-bottom: 8px;
@@ -84,6 +82,10 @@ input.searchBar {
 .searchBar {
   width: 100%;
   background-color: lightblue;
+}
+.searchBar::placeholder {
+  /* Set the color of the placeholder text */
+  color:#f65058; /* You can replace #999 with any color value you prefer */
 }
 ul {
   list-style-type: none;

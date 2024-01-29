@@ -1,21 +1,32 @@
 <template>
   <q-header elevated>
     <q-toolbar class="toolbar-width">
-      <q-btn flat dense round icon="menu" aria-label="Menu" />
-
       <q-toolbar-title>Bi-lingual 4SL+</q-toolbar-title>
+      <q-btn
+        flat
+        dense
+        round
+        icon="help"
+        aria-label="Help"
+        v-on:click="navigateToPage"
+      />
     </q-toolbar>
   </q-header>
 </template>
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 export default defineComponent({
   name: "NavigationIndex",
-
+  methods: {
+    navigateToPage: function () {
+      this.$router.push({
+        name: "BackgroundInformation",
+      });
+    },
+  },
 });
 </script>
 <style>
-
 .q-toolbar__title {
   font-size: 16px;
 }

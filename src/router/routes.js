@@ -13,6 +13,11 @@ const routes = [
         path: "/tract/:tract",
         component: () => import("src/pages/ViewTract.vue"),
       },
+      {
+        name: "BackgroundInformation",
+        path: "/background",
+        component: () => import("src/pages/BackgroundInformation.vue"),
+      },
     ],
   },
 
