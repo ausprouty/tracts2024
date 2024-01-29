@@ -1,7 +1,7 @@
 <template>
   <q-header elevated>
     <q-toolbar class="toolbar-width">
-      <q-toolbar-title>Bi-lingual 4SL+</q-toolbar-title>
+      <q-toolbar-title >Bi-lingual 4SL+</q-toolbar-title>
       <q-btn
         flat
         dense

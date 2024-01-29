@@ -4,7 +4,7 @@
       type="text"
       class="searchBar"
       v-model="searchQuery"
-      @input="searchLanguages"
+      @keyup="searchLanguages"
       placeholder="Search for a language or scroll"
     />
 
@@ -38,8 +38,6 @@ export default {
 
   methods: {
     searchLanguages() {
-      console.log(this.languages);
-
       if (this.searchQuery === "") {
         this.filteredLanguages = [];
         return;
