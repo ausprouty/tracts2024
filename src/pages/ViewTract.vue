@@ -7,6 +7,7 @@
 
 <script>
 import NavigationTract from "components/NavigationTract.vue";
+import { setCssVar } from 'quasar'
 
 export default {
   name: 'ViewTract',
@@ -14,9 +15,11 @@ export default {
   data() {
     return {
       tractContent: "",
+      rootFontSize: '16px' // example
     }
   },
   mounted() {
+    setCssVar('theme-font-size', '40px')
     this.fetchExternalContent();
   },
   methods: {
@@ -37,6 +40,9 @@ export default {
 }
 </script>
 <style>
+:root {
+  font-size: this.RootFontSize;
+}
 .tractTitle{
   text-align: right;
 }

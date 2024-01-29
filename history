@@ -19,6 +19,8 @@ Intel® HAXM installation failed. To install Intel® HAXM follow the instruction
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
+https://stackoverflow.com/questions/77150586/quasar-how-to-change-font-size-family-programmatically
+
 quasar dev
 quasar dev -m capacitor -T android
 

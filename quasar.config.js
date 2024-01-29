@@ -153,6 +153,16 @@ module.exports = configure(function (/* ctx */) {
       swFilename: 'sw.js',
       manifestFilename: 'manifest.json',
       useCredentialsForManifestTag: false,
+      // Set up the splash screen
+      manifestOptions: {
+        background_color: '#ffffff',
+        icons: [
+          {
+            src: 'icons/splash.png',
+            sizes: '512x512',
+            type: 'image/png',
+          }
+        ]
       // useFilenameHashes: true,
       // extendGenerateSWOptions (cfg) {}
       // extendInjectManifestOptions (cfg) {},
