@@ -46,7 +46,9 @@ div.tract-link{
   width:100%;
 }
 .shadow-card {
+  background-color: #f9e398;
   background-color: lightgrey;
+
   cursor: pointer;
   margin-top: 6px;
   padding: 5px;

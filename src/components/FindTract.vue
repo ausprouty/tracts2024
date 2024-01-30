@@ -74,16 +74,20 @@ li.shadow-card {
 
 
 input.searchBar {
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 .searchBar {
   width: 100%;
-  background-color: lightblue;
+  font-size: 16px;
+  background-color: #f9e398;
+
 }
 .searchBar::placeholder {
   /* Set the color of the placeholder text */
-  color:#f65058; /* You can replace #999 with any color value you prefer */
+  color:#009da5;
+
+
 }
 ul {
   list-style-type: none;

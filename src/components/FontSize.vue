@@ -22,18 +22,26 @@
 <script>
 import { getCssVar, setCssVar } from 'quasar'
 export default {
-  // name: 'ComponentName',
+   name: 'FontSize',
   setup() {
     return {};
   },
+  data() {
+    return {
+      fontSize:10,
+    };
+  },
   methods:{
     increaseFontSize(){
-      var fontSize = this.getCurrentFontSize() + 1
-      this.setFontSize(fontSize)
+      this.fontSize = this.getCurrentFontSize() + 1
+      this.setFontSize(this.fontSize)
     },
     decreaseFontSize(){
-      var fontSize = this.getCurrentFontSize() - 1
-      this.setFontSize(fontSize)
+      this.fontSize = this.getCurrentFontSize() - 1
+      if (this.fontSize > 4){
+        this.setFontSize(this.fontSize)
+      }
+
     },
     getCurrentFontSize(){
       var currentFontString = getCssVar('theme-font-size')
@@ -43,7 +51,6 @@ export default {
     },
     setFontSize(fontSize){
       var fontString = fontSize + 'px'
-      console.log (fontString)
       localStorage.setItem('tractFontSize',fontString )
       setCssVar('theme-font-size', fontString )
     }

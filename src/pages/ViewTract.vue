@@ -1,5 +1,6 @@
 <template>
     <NavigationTract/>
+    <InstallToHomeScreen/>
   <q-page padding>
    <div v-html="tractContent"></div>
   </q-page>
@@ -7,11 +8,12 @@
 
 <script>
 import NavigationTract from "components/NavigationTract.vue";
+import InstallToHomeScreen from "components/InstallToHomeScreen.vue";
 import { setCssVar } from 'quasar'
 
 export default {
   name: 'ViewTract',
-  components: {NavigationTract },
+  components: {NavigationTract, InstallToHomeScreen },
   data() {
     return {
       tractContent: "",
@@ -35,10 +37,10 @@ export default {
         if (response.ok) {
           this.tractContent = await response.text();
         } else {
-          console.error("Failed to fetch external content");
+          this.tractContent = 'Please access this content while online. The app will then save it for offline use.'
         }
       } catch (error) {
-        console.error("Error fetching external content:", error);
+        this.tractContent = 'There was an error fetching this content.  Sorry.'
       }
     },
   },
@@ -46,8 +48,12 @@ export default {
 </script>
 <style>
 :root {
-  font-size: this.RootFontSize;
+  --primary-color: #009da5;
+  --secondary-color: #ffc700;
+  --accent-color: #6c5ce7;
+  --background-color: #f8f9fa;
 }
+
 .tractTitle{
   text-align: right;
 }
@@ -74,8 +80,7 @@ export default {
 	background-color: #fff;
 	font-size: 1.2em;
 	line-height: 1.3em;
-
-	color: #005c86;
+	color: var(--accent-color);
 	white-space: normal;
 	text-align: left;
 	position: relative;
@@ -167,8 +172,7 @@ img.tract-image{
 .tract-lawheading{
 	font-size: 1.1em;
 	font-weight: bold;
-
-	color: #0d9ecc;
+	color:var(--accent-color)
 
 }
 .tract-law,
@@ -177,13 +181,13 @@ img.tract-image{
 	font-size: 1.1em;
 	line-height:1.3em;
 	font-weight: bold;
-	color: #005C86;
+  color:var(--accent-color);
 
 
 }
 .tract-law-number{
 	font-size: 3em;
-	color: #f65058;
+	color: var(--accent-color);
 	width:20px;
 
 }
@@ -196,14 +200,16 @@ img.tract-image{
 .tract-heading{
 	font-size: 1.1em;
 	line-height:1.3em;
-	color: #f65058;
+	color: var(--primary-color);
 	font-weight: bold;
+}
+a.tract-link{
+	color: var(--accent-color);
 }
 .tract-verse{
 	font-size: 1em;
 	line-height:1.3em;
 	font-style: italic;
-	color: green;
 	color: black
 
 }
@@ -229,8 +235,7 @@ p.tract-circle-heading-rtl,
 .tract-circle-heading
 {
 	font-size: 1.1em;
-    color: #f8aa00;
-    color: #f65058;
+  color: var(--primary-color);
 	line-height:1.3em;
 	text-align:center;
 	font-weight: bold;
@@ -293,9 +298,7 @@ p.rtl{
 	font-weight: bold;
 }
 
-a.tract-link{
-	color: #005C86;
-}
+
 
 p.tract-circle-point-ltr,
 p.tract-circle-point-rtl

@@ -3,7 +3,7 @@
     <NavigationBackground/>
     <h3 class="background">Quick Start</h3>
     <ul>
-      <li class="background">Type language you want in the search bar</li>
+      <li class="background">Type the first few letters of the language you want in the search bar (on some phones you may need to press 'Enter' before you see any results)</li>
       <li class="background">Click on language name</li>
       <li class="background">
         English text will appear on the left. Your chosen language will appear
@@ -20,6 +20,8 @@
       </li>
       <li class="background">Find ways to keep in touch later.</li>
     </ul>
+    <h3 class="background">Font Size</h3>
+    <p>This feature does not work on all phones.</p>
 
     <h3 class="background">Background</h3>
     <p class="background">
