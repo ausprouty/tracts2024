@@ -1,6 +1,7 @@
 <template>
   <div>
     <q-btn
+     class="q-mr-md"
       flat
       dense
       round
@@ -9,6 +10,7 @@
       v-on:click="increaseFontSize"
     />
     <q-btn
+    class="q-mr-md"
       flat
       dense
       round
@@ -58,3 +60,4 @@ export default {
   }
 };
 </script>
+

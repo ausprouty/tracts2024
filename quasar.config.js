@@ -158,10 +158,81 @@ module.exports = configure(function (/* ctx */) {
         background_color: '#ffffff',
         icons: [
           {
-            src: 'icons/splash.png',
-            sizes: '512x512',
+            src: 'screens/screen-200x320.png',
+            sizes: '200x320',
             type: 'image/png',
-          }
+          },
+          {
+            src: 'screens/screen-320x480.png',
+            sizes: '320x480',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-480x800.png',
+            sizes: '480x800',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-630x300.png',
+            sizes: '630x300',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-640x960.png',
+            sizes: '640x960',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-640x1136.png',
+            sizes: '640x1136',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-720xx1280.png',
+            sizes: '720xx1280',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-750x1334.png',
+            sizes: '750x1334',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-768x1024.png',
+            sizes: '768x1024',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-788x1024.png',
+            sizes: '788x1024',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-1024x768.png',
+            sizes: '1024x768',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-1242x2208.png',
+            sizes: '1242x2208',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-1536x2048.png',
+            sizes: '1536x2048',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-1656x1242.png',
+            sizes: '1656x1242',
+            type: 'image/png',
+          },
+          {
+            src: 'screens/screen-2048x1536.png',
+            sizes: '2048x1536',
+            type: 'image/png',
+          },
+
         ]
       },
       // useFilenameHashes: true,

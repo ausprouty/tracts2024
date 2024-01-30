@@ -1,7 +1,7 @@
 <template>
 <meta property="og:title" content="Bi-lingual 4SL+">
-<meta property="og:description" content="In order to make any real progress in our spiritual life we know we need a guru.">
-<meta property="og:image" content="https://myfriends.network/sites/myfriends/images/standard/MyFriends-App-Facebook.jpg">
+<meta property="og:description" content="These bi-lingual outlines will facilitate conversations about God in over 80 languages.">
+<meta property="og:image" content="https://tracts.mylanguage.net.au/images/phone.png">
 <meta property="og:url" content="https://tracts.mylanguage.net.au">
 <meta property="og:type" content="website">
 
@@ -9,8 +9,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@PtCAus">
 <meta name="twitter:title" content="Bi-lingual 4SL+">
-<meta name="twitter:description" content="In order to make any real progress in our spiritual life we know we need a guru">
-<meta name="twitter:image" content="https://myfriends.network/sites/myfriends/images/standard/MyFriends-App-Twitter.jpg">
+<meta name="twitter:description" content="These bi-lingual outlines will facilitate conversations about God in over 80 languages.">
+<meta name="twitter:image" content="https://tracts.mylanguage.net.au/images/phone.png">
 
 
 <q-btn class="shareLink"
