@@ -19,7 +19,12 @@ export default {
     }
   },
   mounted() {
-    setCssVar('theme-font-size', '40px')
+    var tractFontSize = localStorage.getItem('tractFontSize' )
+    if (tractFontSize == null){
+      tractFontSize = '20px'
+      localStorage.setItem('tractFontSize',tractFontSize )
+    }
+    setCssVar('theme-font-size', tractFontSize)
     this.fetchExternalContent();
   },
   methods: {

@@ -42,8 +42,10 @@ export default {
 
     },
     setFontSize(fontSize){
-      console.log (fontSize)
-      setCssVar('theme-font-size', fontSize + 'px')
+      var fontString = fontSize + 'px'
+      console.log (fontString)
+      localStorage.setItem('tractFontSize',fontString )
+      setCssVar('theme-font-size', fontString )
     }
 
   }

@@ -14,10 +14,30 @@
 import LanguageList from "components/LanguageList.vue";
 import NavigationIndex from "components/NavigationIndex.vue";
 import FindTract from "components/FindTract.vue";
+import { setCssVar } from 'quasar'
 
 export default {
   name: "IndexPage",
   components: { LanguageList,NavigationIndex, FindTract },
+  created() {
+    var tractFontSize = localStorage.getItem('tractFontSize' )
+    if (tractFontSize == null){
+      tractFontSize = '20px'
+      localStorage.setItem('tractFontSize',tractFontSize )
+    }
+    setCssVar('theme-font-size', tractFontSize)
+    var lastPage = localStorage.getItem("tractLanguageFile", null);
+    console.log (lastPage)
+    if (lastPage != null){
+      this.$router.push({
+        name: 'ViewTract',
+        params: {
+          tract: lastPage,
+        },
+      })
+    }
+
+  },
   data() {
     return {
       languages: [
@@ -112,18 +132,6 @@ export default {
       ],
     };
   },
-  created() {
-    var lastPage = localStorage.getItem("tractLanguageFile", null);
-    console.log (lastPage)
-    if (lastPage != null){
-      this.$router.push({
-        name: 'ViewTract',
-        params: {
-          tract: lastPage,
-        },
-      })
-    }
 
-  },
 };
 </script>
