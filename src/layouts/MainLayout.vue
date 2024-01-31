@@ -14,7 +14,7 @@ import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: "MainLayout",
-  
+
   data() {
     return {
       route: useRoute()
@@ -36,12 +36,11 @@ export default defineComponent({
 </script>
 <style>
 .footer {
-  background-color: darkgrey;
+  background-color: #009da5;
   color: white;
   padding: 10px;
   text-align: center;
   width: 100%;
-  max-width: 600px;
   margin: 0 auto;
 }
 .q-toolbar__title {

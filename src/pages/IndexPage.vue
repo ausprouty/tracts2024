@@ -21,14 +21,14 @@ import { setCssVar } from "quasar";
 export default {
   name: "IndexPage",
   components: { LanguageList, NavigationIndex, FindTract, InstallToHomeScreen },
-  created() {
+  mounted() {
     var tractFontSize = localStorage.getItem("tractFontSize");
     if (tractFontSize == null) {
       tractFontSize = "20px";
       localStorage.setItem("tractFontSize", tractFontSize);
     }
     setCssVar("theme-font-size", tractFontSize);
-    var lastPage = localStorage.getItem("tractLanguageFile", null);
+    var lastPage = localStorage.getItem("tractLanguageFile");
     console.log(lastPage);
     if (lastPage != null) {
       this.$router.push({

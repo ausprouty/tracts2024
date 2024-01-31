@@ -50,16 +50,8 @@ export default {
 :root {
   --primary-color: #009da5;
   --secondary-color: #ffc700;
-
+  --accentd-color: pink;
   --accent-color: #6c5ce7;
-  --accent-color: #dc143c;
-  --accent-color: #50c878;
-  --accent-color: #f4c430;
-  --accent-color:#e0115f;
-  --accent-color: #4b0082;
-
-
-
   --background-color: #f8f9fa;
 }
 
@@ -87,8 +79,8 @@ export default {
 }
 .section-title{
 	background-color: #fff;
-	font-size: 1.2em;
-	line-height: 1.3em;
+	font-size: 1.2rem;
+	line-height: 1.3rem;
 	color: var(--accent-color);
 	white-space: normal;
 	text-align: left;
@@ -170,7 +162,7 @@ img.tract-image{
 
 
 .tract-lawheading{
-	font-size: 1.1em;
+	font-size: 1.1rem;
 	font-weight: bold;
 	color:var(--accent-color)
 
@@ -178,15 +170,15 @@ img.tract-image{
 .tract-law,
 .mylanguage
 {
-	font-size: 1.1em;
-	line-height:1.3em;
+	font-size: 1.1rem;
+	line-height:1.3rem;
 	font-weight: bold;
   color:var(--accent-color);
 
 
 }
 .tract-law-number{
-	font-size: 3em;
+	font-size: 3rem;
 	color: var(--accent-color);
 	width:20px;
 
@@ -198,8 +190,8 @@ img.tract-image{
 }
 .tract-countryname,
 .tract-heading{
-	font-size: 1.1em;
-	line-height:1.3em;
+	font-size: 1.1rem;
+	line-height:1.3rem;
 	color: var(--primary-color);
 	font-weight: bold;
 }
@@ -207,19 +199,19 @@ a.tract-link{
 	color: var(--accent-color);
 }
 .tract-verse{
-	font-size: 1em;
-	line-height:1.3em;
+	font-size: 1rem;
+	line-height:1.3rem;
 	font-style: italic;
 	color: black
 
 }
 .tract-text{
-	font-size: 1em;
+	font-size: 1rem;
 	color: #000;
 
 }
 .tract-explanation{
-	font-size: .8em;
+	font-size: .8rem;
 	color: #000;
 
 }
@@ -234,7 +226,7 @@ p.tract-circle-heading-ltr,
 p.tract-circle-heading-rtl,
 .tract-circle-heading
 {
-	font-size: 1.1em;
+	font-size: 1.1rem;
   color: var(--primary-color);
 	line-height:1.3em;
 	text-align:center;
@@ -243,7 +235,7 @@ p.tract-circle-heading-rtl,
 p.tract-circle-subhead,
 .tract-circle-image
 {
-	font-size: 1em;
+	font-size: 1rem;
 	color: #000;
 	text-align:center;
 	font-weight: bold;
@@ -251,13 +243,13 @@ p.tract-circle-subhead,
 p.tract-circle-point-ltr,
 .tract-circle-text
 {
-	font-size: 1em;
+	font-size: 1rem;
 	color: #000;
 	text-align:left;
 }
 p.tract-circle-point-rtl
 {
-	font-size: 1em;
+	font-size: 1rem;
 	color: #000;
 	text-align:right;
 	direction: rtl;
@@ -267,13 +259,13 @@ p.rtl{
 
 }
 .tract-circle-footer-ltr{
-	font-size: 1em;
+	font-size: 1rem;
 	color: #000;
 	text-align:center;
 	font-weight: normal;
 }
 .tract-circle-footer-rtl{
-	font-size: 1em;
+	font-size: 1rem;
 	color: #000;
 	text-align:center;
 	font-weight: normal;
@@ -282,7 +274,7 @@ p.rtl{
 .tract-circle-explanation,
 .tract-circle-explanation-ltr,
 .tract-circle-explanation-rtl{
-	font-size: .8em;
+	font-size: .8rem;
 	color: #000;
 	text-align:center;
 }
@@ -321,7 +313,7 @@ h3{
   margin-top: 1em;
 }
 p.background{
-	font-size: 1em;
+	font-size: 1rem;
 }
 div.content{
 	padding-left:7px;
@@ -331,12 +323,12 @@ div.content{
 
 @media screen and (min-width: 0em) and (max-width: 30.236em) {
 	body {
-		font-size: .85em;
-		line-height: 1em;
+		font-size: .85rem;
+		line-height: 1rem;
 	}
 	link,
 	.tract-law{
-		font-size: 1em;
+		font-size: 1rem;
 	}
 	li,
 	.tract-prayer,
@@ -351,19 +343,19 @@ div.content{
 	.tract-text,
 	.tract-countryname,
 	.tract-heading {
-		font-size: .85em;
-		line-height: 1.1em;
+		font-size: .85rem;
+		line-height: 1.1rem;
 	}
 
 	.tract-law-number {
-		font-size: 2em;
+		font-size: 2rem;
         width:7px;
 		padding-top:5px;
 	}
 	.title,
 	.tract-list-tpl{
-		font-size:1.4em;
-		line-height:1.6em;
+		font-size:1.4rem;
+		line-height:1.6rem;
 	}
 	td.side-right, th.side-right {
 		border-bottom: 0;
@@ -385,8 +377,8 @@ div.content{
 		margin: 3px 3px;
 	}
 	li.background {
-		font-size: 1em;
-		line-height: 1.3em;
+		font-size: 1rem;
+		line-height: 1.3rem;
 	}
 	ul.tract-ul{
 		padding-left:10px;
