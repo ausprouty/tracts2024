@@ -22,11 +22,12 @@
 </template>
 
 <script>
+import { useTractStore } from "stores/TractStore";
 import { getCssVar, setCssVar } from 'quasar'
 export default {
    name: 'FontSize',
   setup() {
-    return {};
+
   },
   data() {
     return {
@@ -52,8 +53,11 @@ export default {
 
     },
     setFontSize(fontSize){
+      console.log (fontSize)
       var fontString = fontSize + 'px'
       localStorage.setItem('tractFontSize',fontString )
+      const { updateTractFontSize } = useTractStore();
+      updateTractFontSize(fontSize);
       setCssVar('theme-font-size', fontString )
     }
 
