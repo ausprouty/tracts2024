@@ -1,6 +1,7 @@
 <template>
   <NavigationTract />
   <InstallToHomeScreen />
+  {{ this.screenWidth }}
   <q-page padding>
     <div v-html="tractContent"></div>
   </q-page>
@@ -13,26 +14,22 @@ import NavigationTract from "components/NavigationTract.vue";
 import InstallToHomeScreen from "components/InstallToHomeScreen.vue";
 import {  getCssVar, setCssVar } from "quasar";
 
-function setCssVars() {
+function setCssVars(screenWidth) {
       console.log ('I am setting font size')
-      var value = fontSizeString(0.8);
-      document.documentElement.style.setProperty(`--FontSize08`, value);
-      var value = fontSizeString(0.9);
-      document.documentElement.style.setProperty(`--FontSize09`, value);
-      var value = fontSizeString(1);
-      document.documentElement.style.setProperty(`--FontSize10`, value);
-      var value = fontSizeString(1.1);
-      document.documentElement.style.setProperty(`--FontSize11`, value);
-      value = fontSizeString(1.2);
-      document.documentElement.style.setProperty(`--FontSize12`, value);
-      value = fontSizeString(1.3);
-      document.documentElement.style.setProperty(`--FontSize13`, value);
-      value = fontSizeString(1.4);
-      document.documentElement.style.setProperty(`--FontSize14`, value);
-      value = fontSizeString(2);
-      document.documentElement.style.setProperty(`--FontSize20`, value);
-      value = fontSizeString(3);
-      document.documentElement.style.setProperty(`--FontSize30`, value);
+      document.documentElement.style.setProperty(`--FontSize08`, fontSizeString(0.8));
+      document.documentElement.style.setProperty(`--FontSize09`, fontSizeString(0.9));
+      document.documentElement.style.setProperty(`--FontSize10`, fontSizeString(1));
+      document.documentElement.style.setProperty(`--FontSize11`, fontSizeString(1.1));
+      document.documentElement.style.setProperty(`--FontSize12`, fontSizeString(1.2));
+      document.documentElement.style.setProperty(`--FontSize13`, fontSizeString(1.3));
+      document.documentElement.style.setProperty(`--FontSize14`, fontSizeString(1.4));
+      document.documentElement.style.setProperty(`--FontSize20`, fontSizeString(2));
+      document.documentElement.style.setProperty(`--FontSize30`, fontSizeString(3));
+      var padding = '0px';
+      if (screenWidth > 600){
+        padding = '30px'
+      }
+      document.documentElement.style.setProperty(`--SideRightPadding`, padding);
     }
 
     function fontSizeString(sizing) {
@@ -48,6 +45,7 @@ export default {
   data() {
     return {
       tractContent: "",
+      screenWidth: this.$q.screen.width,
       rootFontSize: "16px", // example
     };
   },
@@ -68,18 +66,21 @@ export default {
       console.log('tractFontSize changed from ' + oldValue + ' to '+ newValue);
       tractFontSize.value = newValue;
       setCssVar("theme-font-size", newValue + 'px');
-      setCssVars();// Update local reactive reference if needed
+      setCssVars($q.screen.width);// Update local reactive reference if needed
     });
     return {
       tractFontSize
     }
   },
   mounted() {
-    setCssVars();
+    this.updateScreenWidth();
     this.fetchExternalContent();
   },
   methods: {
-
+    updateScreenWidth() {
+      this.screenWidth = this.$q.screen.width;
+      setCssVars(this.$q.screen.width);
+    },
     async fetchExternalContent() {
       try {
         var page = "/tracts/" + this.$route.params.tract + ".html";
@@ -209,7 +210,7 @@ td.side-right,
 th.side-right {
   border-bottom: 0;
   width: 50%;
-  padding-left: 30px;
+  padding-left: var(--SideRightPadding, 30px);
   padding-right: 5px;
 }
 td.side-whole,
