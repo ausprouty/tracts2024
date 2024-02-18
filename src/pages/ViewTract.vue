@@ -1,7 +1,6 @@
 <template>
   <NavigationTract />
   <InstallToHomeScreen />
-  {{ this.tractFontSize }}
   <q-page padding>
     <div v-html="tractContent"></div>
   </q-page>
@@ -41,7 +40,7 @@ function fontSizeString(sizing) {
 function getLocalStorageTractFontSize(){
   var baseFontSize = 14
   if (localStorage.getItem("tractFontSize") &&  localStorage.getItem("tractFontSize") !== 'null'){
-    alert ('Getting from local storage of ' + localStorage.getItem("tractFontSize"))
+    console.log ('Getting from local storage of ' + localStorage.getItem("tractFontSize"))
     baseFontSize = localStorage.getItem("tractFontSize")
   }
   else{
@@ -57,12 +56,22 @@ export default {
     return {
       tractContent: "",
       screenWidth: this.$q.screen.width,
-      tractFontSize: null
+      tractFontSizeWatcher: null
     };
   },
   created(){
     const tractStore = useTractStore();
-
+    // Watch the value in the store
+    this.tractFontSizeWatcher = this.$watch(
+      () => tractStore.tractFontSize,
+      (newValue, oldValue) => {
+        console.log(`Value is changed from ${oldValue} to  ${newValue}`);
+        localStorage.setItem("tractFontSize", newValue);
+        setCssVar("theme-font-size", newValue + 'px');
+        this.updateScreenWidth();
+        this.fetchExternalContent();
+      }
+    );
   },
   mounted() {
     this.tractFontSize = getLocalStorageTractFontSize();
@@ -73,28 +82,7 @@ export default {
     this.updateScreenWidth();
     this.fetchExternalContent();
   },
-  watch: {
-    'tractFontSize': {
-      handler(newValue, oldValue) {
-        if (newValue == null){
-          return
-        }
-        alert('TractFontSize changed from ' + oldValue + ' to '+ newValue);
-        localStorage.setItem("tractFontSize", newValue);
-       // this.tractFontSize = newValue;
-        setCssVar("theme-font-size", newValue + 'px');
-        this.$router.push({
-          name: "ViewTract",
-          params: {
-            tract: this.$route.params.tract ,
-            fontSize: newValue
-          },
-        });
-       //setCssVars(this.$q.screen.width); // Update local reactive reference if needed
-      },
-      immediate: true
-    }
-  },
+
   methods: {
     updateScreenWidth() {
       this.screenWidth = this.$q.screen.width;
