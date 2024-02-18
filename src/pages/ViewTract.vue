@@ -1,43 +1,54 @@
 <template>
   <NavigationTract />
   <InstallToHomeScreen />
-  {{ this.screenWidth }}
+  {{ this.tractFontSize }}
   <q-page padding>
     <div v-html="tractContent"></div>
   </q-page>
 </template>
 
 <script>
-import { watch, ref } from 'vue';
 import { useTractStore } from "stores/TractStore";
 import NavigationTract from "components/NavigationTract.vue";
 import InstallToHomeScreen from "components/InstallToHomeScreen.vue";
 import {  getCssVar, setCssVar } from "quasar";
 
 function setCssVars(screenWidth) {
-      console.log ('I am setting font size')
-      document.documentElement.style.setProperty(`--FontSize08`, fontSizeString(0.8));
-      document.documentElement.style.setProperty(`--FontSize09`, fontSizeString(0.9));
-      document.documentElement.style.setProperty(`--FontSize10`, fontSizeString(1));
-      document.documentElement.style.setProperty(`--FontSize11`, fontSizeString(1.1));
-      document.documentElement.style.setProperty(`--FontSize12`, fontSizeString(1.2));
-      document.documentElement.style.setProperty(`--FontSize13`, fontSizeString(1.3));
-      document.documentElement.style.setProperty(`--FontSize14`, fontSizeString(1.4));
-      document.documentElement.style.setProperty(`--FontSize20`, fontSizeString(2));
-      document.documentElement.style.setProperty(`--FontSize30`, fontSizeString(3));
-      var padding = '0px';
-      if (screenWidth > 600){
-        padding = '30px'
-      }
-      document.documentElement.style.setProperty(`--SideRightPadding`, padding);
-    }
+  console.log ('I am setting font size')
+  document.documentElement.style.setProperty(`--FontSize08`, fontSizeString(0.8));
+  document.documentElement.style.setProperty(`--FontSize09`, fontSizeString(0.9));
+  document.documentElement.style.setProperty(`--FontSize10`, fontSizeString(1));
+  document.documentElement.style.setProperty(`--FontSize11`, fontSizeString(1.1));
+  document.documentElement.style.setProperty(`--FontSize12`, fontSizeString(1.2));
+  document.documentElement.style.setProperty(`--FontSize13`, fontSizeString(1.3));
+  document.documentElement.style.setProperty(`--FontSize14`, fontSizeString(1.4));
+  document.documentElement.style.setProperty(`--FontSize20`, fontSizeString(2));
+  document.documentElement.style.setProperty(`--FontSize30`, fontSizeString(3));
+  var padding = '0px';
+  if (screenWidth > 600){
+    padding = '30px'
+  }
+  document.documentElement.style.setProperty(`--SideRightPadding`, padding);
 
-    function fontSizeString(sizing) {
-      var currentFontString = getCssVar("theme-font-size");
-      currentFontString.replace("px", "");
-      var currentFontInt = parseInt(parseInt(currentFontString) * sizing);
-      return currentFontInt + "px";
-    }
+}
+
+function fontSizeString(sizing) {
+  var currentFontString = getCssVar("theme-font-size");
+  currentFontString.replace("px", "");
+  var currentFontInt = parseInt(parseInt(currentFontString) * sizing);
+  return currentFontInt + "px";
+}
+function getLocalStorageTractFontSize(){
+  var baseFontSize = 14
+  if (localStorage.getItem("tractFontSize") &&  localStorage.getItem("tractFontSize") !== 'null'){
+    alert ('Getting from local storage of ' + localStorage.getItem("tractFontSize"))
+    baseFontSize = localStorage.getItem("tractFontSize")
+  }
+  else{
+    localStorage.setItem("tractFontSize", baseFontSize);
+  }
+  return baseFontSize;
+}
 
 export default {
   name: "ViewTract",
@@ -46,35 +57,43 @@ export default {
     return {
       tractContent: "",
       screenWidth: this.$q.screen.width,
-      rootFontSize: "16px", // example
+      tractFontSize: null
     };
   },
-  setup(){
+  created(){
     const tractStore = useTractStore();
-    var baseFontSize = localStorage.getItem("tractFontSize");
-    if (baseFontSize == null) {
-      baseFontSize = "20";
-      localStorage.setItem("tractFontSize", baseFontSize);
-    }
-    const { updateTractFontSize } = useTractStore();
-    updateTractFontSize(baseFontSize);
-    const tractFontSize = ref(tractStore.tractFontSize);
-    var baseFontString = tractFontSize.value + 'px'
-    setCssVar("theme-font-size", baseFontString);
-    // Watch for changes in tractStore.baseFontSize
-    watch(() => tractStore.tractFontSize, (newValue, oldValue) => {
-      console.log('tractFontSize changed from ' + oldValue + ' to '+ newValue);
-      tractFontSize.value = newValue;
-      setCssVar("theme-font-size", newValue + 'px');
-      setCssVars($q.screen.width);// Update local reactive reference if needed
-    });
-    return {
-      tractFontSize
-    }
+
   },
   mounted() {
+    this.tractFontSize = getLocalStorageTractFontSize();
+    const { updateTractFontSize } = useTractStore();
+    updateTractFontSize(this.tractFontSize);
+    var baseFontString = this.tractFontSize + 'px'
+    setCssVar("theme-font-size", baseFontString);
     this.updateScreenWidth();
     this.fetchExternalContent();
+  },
+  watch: {
+    'tractFontSize': {
+      handler(newValue, oldValue) {
+        if (newValue == null){
+          return
+        }
+        alert('TractFontSize changed from ' + oldValue + ' to '+ newValue);
+        localStorage.setItem("tractFontSize", newValue);
+       // this.tractFontSize = newValue;
+        setCssVar("theme-font-size", newValue + 'px');
+        this.$router.push({
+          name: "ViewTract",
+          params: {
+            tract: this.$route.params.tract ,
+            fontSize: newValue
+          },
+        });
+       //setCssVars(this.$q.screen.width); // Update local reactive reference if needed
+      },
+      immediate: true
+    }
   },
   methods: {
     updateScreenWidth() {

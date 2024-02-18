@@ -10,7 +10,7 @@ const routes = [
       },
       {
         name: "ViewTract",
-        path: "/tract/:tract",
+        path: "/tract/:tract/:fontSize?",
         component: () => import("src/pages/ViewTract.vue"),
       },
       {

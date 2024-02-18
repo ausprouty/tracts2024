@@ -5,7 +5,8 @@ export const useTractStore = defineStore('tractStore', {
     tractFontSize: 14,
   }),
   getters: {
-    getTractFontSize: (state) => state.tractFontSize,
+    getTractFontSizeInt: (state) => state.tractFontSize,
+    getTractFontSizePx: (state) => state.tractFontSize + 'px',
   },
   actions: {
     updateTractFontSize(newValue) {
