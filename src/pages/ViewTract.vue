@@ -28,6 +28,12 @@ function setCssVars(screenWidth) {
     padding = '30px'
   }
   document.documentElement.style.setProperty(`--SideRightPadding`, padding);
+  var fontSize = getLocalStorageTractFontSize()
+  padding = '20px'
+  if (fontSize > 17){
+    padding = '30px'
+  }
+  document.documentElement.style.setProperty(`--LawNumberWidth`, padding);
 
 }
 
@@ -134,7 +140,7 @@ export default {
 .tract-law-number {
   font-size: var(--FontSize30, 3em);
   color: var(--accent-color);
-  width: 20px;
+  width: var(--LawNumberWidth, 20px);
 }
 
 .mylanguage {
