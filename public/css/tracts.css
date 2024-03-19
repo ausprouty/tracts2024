@@ -24,6 +24,9 @@ hr.village-page{
 p.village-text{
   margin:0px;
 }
+p.center{
+  text-align: center;
+}
 
 
 .tract-lawheading {
