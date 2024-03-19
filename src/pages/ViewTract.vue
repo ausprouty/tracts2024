@@ -125,6 +125,30 @@ export default {
 
   --background-color: #f8f9fa;
 }
+.container {
+  display: flex;
+  justify-content: space-between; /* This will space the elements equally across the container */
+}
+
+.left-icon,
+.right-icon {
+  /* Adjust styles for your icons as needed */
+}
+img.village-image{
+  width:100%;
+
+}
+hr.village-page{
+    border: none;
+    border-top: 5px solid var(--accent-color);
+    margin: 10px 0; /* Adjust the padding (top and bottom) as needed */
+}
+p.village-text{
+  margin:0px;
+}
+p.center{
+  text-align: center;
+}
 .tract-lawheading {
   font-size: var(--FontSize11, 1.1em);
   font-weight: bold;
