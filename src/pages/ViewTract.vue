@@ -138,6 +138,9 @@ img.village-image{
   width:100%;
 
 }
+img.tract-circle-image{
+  width:100%;
+}
 hr.village-page{
     border: none;
     border-top: 5px solid var(--accent-color);
