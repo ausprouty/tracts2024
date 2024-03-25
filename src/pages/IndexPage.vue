@@ -126,6 +126,7 @@ export default {
         { name: "Ukrainian", file: "UkrEng4" },
         { name: "Urdu", file: "UrdEng4" },
         { name: "Vietnamese (university)", file: "VieEng4" },
+        { name: "Vietnamese (village)", file: "VieEngV0" },
         { name: "Xhosa", file: "XosEng4" },
         { name: "Yiddish", file: "YidEngJ" },
         { name: "Zaire Swahili", file: "Swa2Eng4" },
