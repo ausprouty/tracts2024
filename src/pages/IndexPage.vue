@@ -119,6 +119,7 @@ export default {
         { name: "Swedish", file: "SweEng4" },
         { name: "Tagalog", file: "TagEng4" },
         { name: "Thai", file: "ThjEng4" },
+        { name: "Thai (village)", file: "ThjEngV0" },
         { name: "Tibetan", file: "TibEng4" },
         { name: "Tongan", file: "TovEng4" },
         { name: "Tsonga", file: "TsoEng4" },
