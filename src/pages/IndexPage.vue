@@ -94,6 +94,7 @@ export default {
         { name: "Kinyarawandan", file: "RuaEng4" },
         { name: "Konkani", file: "GomEng4" },
         { name: "Korean", file: "KknEng4" },
+        { name: "Lahu (village)", file: "LahEngV0" },
         { name: "Lao (village)", file: "LaoEngV0" },
         { name: "Latvian", file: "LatEng4" },
         { name: "Luba Kaonde", file: "KqnEng4" },
