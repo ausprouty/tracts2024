@@ -80,6 +80,7 @@ export default {
         { name: "Hebrew", file: "HebEngJ" },
         { name: "Hindi", file: "HndEng4" },
         { name: "Hmong [blue]", file: "HmbEngV0" },
+        { name: "Hmong [white]", file: "HmwEngV0" },
         { name: "Hungarian", file: "HngEng4" },
         { name: "Ibo", file: "IgrEng4" },
         { name: "Ilocano", file: "IloEng4" },
