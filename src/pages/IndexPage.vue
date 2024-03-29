@@ -98,6 +98,7 @@ export default {
         { name: "Lao (village)", file: "LaoEngV0" },
         { name: "Latvian", file: "LatEng4" },
         { name: "Luba Kaonde", file: "KqnEng4" },
+        { name: "Lugandan", file: "LapEng4" },
         { name: "Macedonian", file: "MkjEng4" },
         { name: "Malagasy", file: "MexEng4" },
         { name: "Mongolian", file: "KhkEng4" },
