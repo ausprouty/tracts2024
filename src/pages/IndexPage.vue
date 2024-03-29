@@ -54,6 +54,7 @@ export default {
         { name: "Bukusu", file: "BxkEng4" },
         { name: "Bulgarian", file: "BulEng4" },
         { name: "Burmese (village)", file: "BmsEngV0" },
+        { name: "Cambodian (village)", file: "KmrEngV0" },
         { name: "Cebuano", file: "CebEng4" },
         { name: "Changane", file: "ChaEng4" },
         { name: "Chibemba", file: "BemEng4" },
