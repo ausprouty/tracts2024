@@ -104,6 +104,7 @@ export default {
         { name: "Macedonian", file: "MkjEng4" },
         { name: "Malagasy", file: "MexEng4" },
         { name: "Mongolian", file: "KhkEng4" },
+        { name: "Nepalese", file: "NepEng4" },
         { name: "Norwegian", file: "NorEng4" },
         { name: "Nuer", file: "NusEng4" },
         { name: "Oromo (central)", file: "Oro1Eng4" },
