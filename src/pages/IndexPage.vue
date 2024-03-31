@@ -123,6 +123,7 @@ export default {
         { name: "Spanish", file: "Spn2Eng4" },
         { name: "Swahili", file: "SwaEng4" },
         { name: "Swedish", file: "SweEng4" },
+        { name: "Tamil", file: "TamEng4" },
         { name: "Tagalog", file: "TagEng4" },
         { name: "Thai", file: "ThjEng4" },
         { name: "Thai (village)", file: "ThjEngV0" },
