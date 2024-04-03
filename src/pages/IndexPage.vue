@@ -76,6 +76,7 @@ export default {
         { name: "French", file: "FrnEngK" },
         { name: "German", file: "GerEngK" },
         { name: "Greek", file: "GrkEngK" },
+        { name: "Gujarati", file: "GjrEng4" },
         { name: "Haitian", file: "HatEng4" },
         { name: "Hausa", file: "HuaEng4" },
         { name: "Hebrew", file: "HebEngJ" },

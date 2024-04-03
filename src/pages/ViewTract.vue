@@ -10,31 +10,48 @@
 import { useTractStore } from "stores/TractStore";
 import NavigationTract from "components/NavigationTract.vue";
 import InstallToHomeScreen from "components/InstallToHomeScreen.vue";
-import {  getCssVar, setCssVar } from "quasar";
+import { getCssVar, setCssVar } from "quasar";
 
 function setCssVars(screenWidth) {
-  console.log ('I am setting font size')
-  document.documentElement.style.setProperty(`--FontSize08`, fontSizeString(0.8));
-  document.documentElement.style.setProperty(`--FontSize09`, fontSizeString(0.9));
+  console.log("I am setting font size");
+  document.documentElement.style.setProperty(
+    `--FontSize08`,
+    fontSizeString(0.8)
+  );
+  document.documentElement.style.setProperty(
+    `--FontSize09`,
+    fontSizeString(0.9)
+  );
   document.documentElement.style.setProperty(`--FontSize10`, fontSizeString(1));
-  document.documentElement.style.setProperty(`--FontSize11`, fontSizeString(1.1));
-  document.documentElement.style.setProperty(`--FontSize12`, fontSizeString(1.2));
-  document.documentElement.style.setProperty(`--FontSize13`, fontSizeString(1.3));
-  document.documentElement.style.setProperty(`--FontSize14`, fontSizeString(1.4));
+  document.documentElement.style.setProperty(
+    `--FontSize11`,
+    fontSizeString(1.1)
+  );
+  document.documentElement.style.setProperty(
+    `--FontSize12`,
+    fontSizeString(1.2)
+  );
+  document.documentElement.style.setProperty(
+    `--FontSize13`,
+    fontSizeString(1.3)
+  );
+  document.documentElement.style.setProperty(
+    `--FontSize14`,
+    fontSizeString(1.4)
+  );
   document.documentElement.style.setProperty(`--FontSize20`, fontSizeString(2));
   document.documentElement.style.setProperty(`--FontSize30`, fontSizeString(3));
-  var padding = '0px';
-  if (screenWidth > 600){
-    padding = '30px'
+  var padding = "0px";
+  if (screenWidth > 600) {
+    padding = "30px";
   }
   document.documentElement.style.setProperty(`--SideRightPadding`, padding);
-  var fontSize = getLocalStorageTractFontSize()
-  padding = '20px'
-  if (fontSize > 17){
-    padding = '30px'
+  var fontSize = getLocalStorageTractFontSize();
+  padding = "20px";
+  if (fontSize > 17) {
+    padding = "30px";
   }
   document.documentElement.style.setProperty(`--LawNumberWidth`, padding);
-
 }
 
 function fontSizeString(sizing) {
@@ -43,13 +60,17 @@ function fontSizeString(sizing) {
   var currentFontInt = parseInt(parseInt(currentFontString) * sizing);
   return currentFontInt + "px";
 }
-function getLocalStorageTractFontSize(){
-  var baseFontSize = 14
-  if (localStorage.getItem("tractFontSize") &&  localStorage.getItem("tractFontSize") !== 'null'){
-    console.log ('Getting from local storage of ' + localStorage.getItem("tractFontSize"))
-    baseFontSize = localStorage.getItem("tractFontSize")
-  }
-  else{
+function getLocalStorageTractFontSize() {
+  var baseFontSize = 14;
+  if (
+    localStorage.getItem("tractFontSize") &&
+    localStorage.getItem("tractFontSize") !== "null"
+  ) {
+    console.log(
+      "Getting from local storage of " + localStorage.getItem("tractFontSize")
+    );
+    baseFontSize = localStorage.getItem("tractFontSize");
+  } else {
     localStorage.setItem("tractFontSize", baseFontSize);
   }
   return baseFontSize;
@@ -62,10 +83,10 @@ export default {
     return {
       tractContent: "",
       screenWidth: this.$q.screen.width,
-      tractFontSizeWatcher: null
+      tractFontSizeWatcher: null,
     };
   },
-  created(){
+  created() {
     const tractStore = useTractStore();
     // Watch the value in the store
     this.tractFontSizeWatcher = this.$watch(
@@ -73,7 +94,7 @@ export default {
       (newValue, oldValue) => {
         console.log(`Value is changed from ${oldValue} to  ${newValue}`);
         localStorage.setItem("tractFontSize", newValue);
-        setCssVar("theme-font-size", newValue + 'px');
+        setCssVar("theme-font-size", newValue + "px");
         this.updateScreenWidth();
         this.fetchExternalContent();
       }
@@ -83,7 +104,7 @@ export default {
     this.tractFontSize = getLocalStorageTractFontSize();
     const { updateTractFontSize } = useTractStore();
     updateTractFontSize(this.tractFontSize);
-    var baseFontString = this.tractFontSize + 'px'
+    var baseFontString = this.tractFontSize + "px";
     setCssVar("theme-font-size", baseFontString);
     this.updateScreenWidth();
     this.fetchExternalContent();
@@ -130,26 +151,23 @@ export default {
   justify-content: space-between; /* This will space the elements equally across the container */
 }
 
-.left-icon,
-.right-icon {
-  /* Adjust styles for your icons as needed */
-}
-img.village-image{
-  width:100%;
 
+img.village-image {
+  width: 100%;
 }
-img.tract-circle-image{
-  width:100%;
+img.tract-circle-image {
+  width: 100%;
 }
-hr.village-page{
-    border: none;
-    border-top: 5px solid var(--accent-color);
-    margin: 10px 0; /* Adjust the padding (top and bottom) as needed */
+hr.village-page {
+  border: none;
+  border-top: 5px solid var(--accent-color);
+  margin: 10px 0; /* Adjust the padding (top and bottom) as needed */
 }
-p.village-text{
-  margin:0px;
+
+p.village-text {
+  margin: 0px;
 }
-p.center{
+p.center {
   text-align: center;
 }
 .tract-lawheading {
@@ -159,7 +177,7 @@ p.center{
 }
 .tract-law,
 .mylanguage {
- font-size: var(--FontSize11, 1.1em);
+  font-size: var(--FontSize11, 1.1em);
   line-height: 1.3em;
   font-weight: bold;
   color: var(--accent-color);
@@ -176,7 +194,7 @@ p.center{
 }
 .tract-countryname,
 .tract-heading {
- font-size: var(--FontSize11, 1.1em);
+  font-size: var(--FontSize11, 1.1em);
   line-height: 1.3em;
   color: var(--primary-color);
   font-weight: bold;
@@ -205,7 +223,7 @@ p.center{
 }
 .section-title {
   background-color: #fff;
- font-size: var(--FontSize12, 1.2em);
+  font-size: var(--FontSize12, 1.2em);
   line-height: 1.3em;
   color: var(--accent-color);
   white-space: normal;
@@ -285,18 +303,17 @@ img.tract-image {
   width: auto\9; /* ie8 */
 }
 
-
 a.tract-link {
   color: var(--accent-color);
 }
 .tract-verse {
-  font-size: var(--FontSize10, 1.0em);
+  font-size: var(--FontSize10, 1em);
   line-height: 1.3em;
   font-style: italic;
   color: black;
 }
 .tract-text {
-  font-size: var(--FontSize10, 1.0em);
+  font-size: var(--FontSize10, 1em);
   color: #000;
 }
 .tract-explanation {
@@ -312,7 +329,7 @@ p {
 p.tract-circle-heading-ltr,
 p.tract-circle-heading-rtl,
 .tract-circle-heading {
- font-size: var(--FontSize11, 1.1em);
+  font-size: var(--FontSize11, 1.1em);
   color: var(--primary-color);
   line-height: 1.3em;
   text-align: center;
@@ -320,19 +337,19 @@ p.tract-circle-heading-rtl,
 }
 p.tract-circle-subhead,
 .tract-circle-image {
-  font-size: var(--FontSize10, 1.0em);
+  font-size: var(--FontSize10, 1em);
   color: #000;
   text-align: center;
   font-weight: bold;
 }
 p.tract-circle-point-ltr,
 .tract-circle-text {
-  font-size: var(--FontSize10, 1.0em);
+  font-size: var(--FontSize10, 1em);
   color: #000;
   text-align: left;
 }
 p.tract-circle-point-rtl {
-  font-size: var(--FontSize10, 1.0em);
+  font-size: var(--FontSize10, 1em);
   color: #000;
   text-align: right;
   direction: rtl;
@@ -341,13 +358,13 @@ p.rtl {
   text-align: right;
 }
 .tract-circle-footer-ltr {
-  font-size: var(--FontSize10, 1.0em);
+  font-size: var(--FontSize10, 1em);
   color: #000;
   text-align: center;
   font-weight: normal;
 }
 .tract-circle-footer-rtl {
-  font-size: var(--FontSize10, 1.0em);
+  font-size: var(--FontSize10, 1em);
   color: #000;
   text-align: center;
   font-weight: normal;
@@ -390,11 +407,17 @@ h3 {
   margin-top: 1em;
 }
 p.background {
-  font-size: var(--FontSize10, 1.0em);
+  font-size: var(--FontSize10, 1em);
 }
 div.content {
   padding-left: 7px;
   padding-right: 7px;
 }
-
+p.burmese,
+.burmese{
+  line-height:1.7em;
+}
+img.village-icon{
+  width:100px;
+}
 </style>

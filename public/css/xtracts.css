@@ -1,3 +1,6 @@
+use css in ViewTract
+
+
 :root {
   --primary-color: #009da5;
   --secondary-color: #ffc700;
@@ -26,6 +29,10 @@ p.village-text{
 }
 p.center{
   text-align: center;
+}
+
+.burmese{
+  line-height: 1.3em;
 }
 
 
