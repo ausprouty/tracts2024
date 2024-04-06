@@ -49,6 +49,7 @@ export default {
         { name: "Arabic", file: "AraEngM" },
         { name: "Aymara", file: "AymEng4" },
         { name: "Bambara", file: "BamEng4" },
+        { name: "Bengali", file: "BngEng4" },
         { name: "Bicolano", file: "BclEng4" },
         { name: "Brazilian Portuguese", file: "Por2Eng4" },
         { name: "Bukusu", file: "BxkEng4" },

@@ -156,7 +156,8 @@ img.village-image {
   width: 100%;
 }
 img.tract-circle-image {
-  width: 100%;
+  width: 80%;
+  max-width: 200px;
 }
 hr.village-page {
   border: none;
