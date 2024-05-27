@@ -93,6 +93,7 @@ export default {
         { name: "Japanese", file: "JpnEng4" },
         { name: "Kalenjin", file: "KalEng4" },
         { name: "Kamba", file: "KikEng4" },
+        { name: "Kannada", file: "KvjkEng4" },
         { name: "Karen (village)", file: "KarEngV0" },
         { name: "Kazakh", file: "KazEng4" },
         { name: "Kinyarawandan", file: "RuaEng4" },
