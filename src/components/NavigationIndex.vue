@@ -1,7 +1,7 @@
 <template>
   <q-header elevated>
     <q-toolbar class="toolbar-width">
-      <q-toolbar-title >Bi-lingual 4SL+</q-toolbar-title>
+      <q-toolbar-title >Bi-linguaL 4SL+</q-toolbar-title>
       <q-btn
         flat
         dense
@@ -33,10 +33,12 @@ export default defineComponent({
 <style>
 .q-toolbar__title {
   font-size: 16px;
+  margin-left:10px;
 }
 
 .q-header {
   width: 100%;
+  margin-left: 10px;
   margin: 0 auto;
 }
 .toolbar-width,

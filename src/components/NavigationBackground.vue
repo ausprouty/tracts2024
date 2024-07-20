@@ -27,7 +27,7 @@ export default defineComponent({
   components: { ShareLink, FontSize  },
   data() {
     return {
-      tract: localStorage.getItem("tractLanguageName", "Bi-lingual 4SL+"),
+      tract: localStorage.getItem("tractLanguageName", "Bi-Lingual 4SL+"),
     };
   },
   methods: {

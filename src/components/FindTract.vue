@@ -79,6 +79,7 @@ input.searchBar {
 }
 .searchBar {
   width: 100%;
+  margin-left:10px;
   font-size: 16px;
   background-color: #f9e398;
 

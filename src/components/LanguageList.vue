@@ -40,15 +40,16 @@ export default defineComponent({
 
 .title{
   font-size: 1em;
+  margin-left:10px;
 }
 div.tract-link{
   display:block;
   width:100%;
+  margin-left:10px;
 }
 .shadow-card {
   background-color: #f9e398;
   background-color: lightgrey;
-
   cursor: pointer;
   margin-top: 6px;
   padding: 5px;
