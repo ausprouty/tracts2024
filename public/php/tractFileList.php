@@ -1,6 +1,6 @@
 <?php
-// Allow from any origin
-header("Access-Control-Allow-Origin: *");
+// Allow from any origin set in .htaccess
+
 // Allow specific methods
 header("Access-Control-Allow-Methods: GET");
 // Allow specific headers

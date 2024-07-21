@@ -1,7 +1,7 @@
 <template>
   <div class="button-container" v-if="showDownload">
-    <button @click="getFilesIndex" class="red-button">
-      Download All Tracts
+    <button @click="getFilesIndex" :class="buttonClass">
+      {{this.downloadText}}
     </button>
   </div>
 </template>
@@ -12,7 +12,9 @@ import axios from "axios";
 export default {
   data() {
     return {
-      showDownload: true
+      showDownload: true,
+      downloadText: 'Download All Tracts',
+      buttonClass: 'yellow-button'
     };
   },
   created() {
@@ -26,6 +28,8 @@ export default {
     },
     async getFilesIndex() {
       try {
+        this.downloadText = 'Downloading'
+        this.buttonClass = 'grey-button'
         const response = await axios.get(
           "https://tracts.mylanguage.net.au/php/tractFileList.php"
         );
@@ -78,8 +82,29 @@ export default {
   justify-content: flex-start; /* Aligns the button to the left */
 }
 
-.red-button {
-  background-color: #ff4d4d;
+.yellow-button {
+  background-color: #ffc700;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.yellow-button:hover {
+  background-color: #ffc700;
+  transform: scale(1.05);
+}
+
+.yellow-button:active {
+  background-color: #ffc700;
+  transform: scale(0.95);
+}
+.grey-button {
+  background-color: #888;
   border: none;
   border-radius: 5px;
   color: white;
@@ -90,13 +115,13 @@ export default {
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.red-button:hover {
-  background-color: #ff3333;
+.grey-button:hover {
+  background-color: #888;
   transform: scale(1.05);
 }
 
-.red-button:active {
-  background-color: #e60000;
+.grey-button:active {
+  background-color: #888;
   transform: scale(0.95);
 }
 </style>
