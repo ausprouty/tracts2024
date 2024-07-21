@@ -18,6 +18,11 @@ const routes = [
         path: "/background",
         component: () => import("src/pages/BackgroundInformation.vue"),
       },
+      {
+        name: "Test",
+        path: "/test",
+        component: () => import("src/components/GetTractFileNames.vue"),
+      },
     ],
   },
 

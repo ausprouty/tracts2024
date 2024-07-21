@@ -12,6 +12,8 @@ Intel® HAXM installation failed. To install Intel® HAXM follow the instruction
 
 https://stackoverflow.com/questions/77150586/quasar-how-to-change-font-size-family-programmatically
 
+npm install axios
+
 quasar dev
 quasar dev -m capacitor -T android
 
