@@ -17,13 +17,14 @@ function getMimeType($filename) {
 }
 
 // Function to get directory contents recursively
-function getDirContents($dir, &$results = array()) {
+function getDirContents($dir, $baseDir, &$results = array()) {
     $files = scandir($dir);  // Get all files and directories in the current directory
 
     foreach ($files as $key => $value) {
         $path = realpath($dir . DIRECTORY_SEPARATOR . $value);  // Construct the full path
         if (!is_dir($path)) {
-            $results[] = $path;  // If it's a file, add it to the results
+          $relativePath = str_replace($baseDir . DIRECTORY_SEPARATOR, '', $path);
+          $results[] = $relativePath;
         } else if ($value != "." && $value != "..") {
             getDirContents($path, $results);  // Recursively get contents of subdirectories
             $results[] = $path;  // Optionally add the directory itself
@@ -35,7 +36,8 @@ function getDirContents($dir, &$results = array()) {
 
 // Set the directory to scan
 $directory = realpath('../tracts');  // Adjust this path as necessary
-$files = getDirContents($directory);  // Get all files and directories
+$adjusted_directory = realpath ('../');
+$files = getDirContents($directory, $adjusted_directory, $results);  // Get all files and directories
 
 // Determine the appropriate content type for the response
 if (!empty($files)) {

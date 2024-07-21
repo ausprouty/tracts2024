@@ -27,7 +27,7 @@ export default {
         );
         if (response.data) {
           this.files = response.data
-          this.downloadFilesToCache(response.data)
+          //this.downloadFilesToCache(response.data)
         }
       } catch (error) {
         console.error("Error fetching files:", error);
