@@ -23,11 +23,10 @@ function getDirContents($dir, $baseDir, &$results = array()) {
     foreach ($files as $key => $value) {
         $path = realpath($dir . DIRECTORY_SEPARATOR . $value);  // Construct the full path
         if (!is_dir($path)) {
-          $relativePath = str_replace($baseDir . DIRECTORY_SEPARATOR, '', $path);
-          $results[] = $relativePath;
+            $relativePath = str_replace($baseDir . DIRECTORY_SEPARATOR, '', $path);
+            $results[] = $relativePath;
         } else if ($value != "." && $value != "..") {
-            getDirContents($path, $results);  // Recursively get contents of subdirectories
-            $results[] = $path;  // Optionally add the directory itself
+            getDirContents($path, $baseDir, $results);  // Recursively get contents of subdirectories
         }
     }
 
@@ -36,8 +35,15 @@ function getDirContents($dir, $baseDir, &$results = array()) {
 
 // Set the directory to scan
 $directory = realpath('../tracts');  // Adjust this path as necessary
-$adjusted_directory = realpath ('../');
-$files = getDirContents($directory, $adjusted_directory, $results);  // Get all files and directories
+$adjusted_directory = realpath('../');
+
+if ($directory === false || !is_readable($directory)) {
+    http_response_code(500);
+    echo json_encode(["error" => "Directory not found or not readable"]);
+    exit;
+}
+
+$files = getDirContents($directory, $adjusted_directory);  // Get all files and directories
 
 // Determine the appropriate content type for the response
 if (!empty($files)) {
@@ -60,7 +66,10 @@ if (!empty($files)) {
             header('Content-Type: ' . getMimeType($files[0]));
             break;
     }
+} else {
+    header('Content-Type: application/json');
 }
 
 // Output the results as JSON for now; you can modify this to handle other content types if needed
 echo json_encode($files);
+?>
