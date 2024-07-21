@@ -21,7 +21,7 @@ const routes = [
       {
         name: "Test",
         path: "/test",
-        component: () => import("src/components/GetTractFileNames.vue"),
+        component: () => import("src/components/DownloadAllTracts.vue"),
       },
     ],
   },

@@ -8,19 +8,27 @@
       :key="language.id"
       :language="language"
     />
+    <DownloadAllTracts />
   </q-page>
 </template>
 
 <script>
-import LanguageList from "components/LanguageList.vue";
-import NavigationIndex from "components/NavigationIndex.vue";
+import DownloadAllTracts from "components/DownloadAllTracts.vue";
 import FindTract from "components/FindTract.vue";
 import InstallToHomeScreen from "components/InstallToHomeScreen.vue";
+import LanguageList from "components/LanguageList.vue";
+import NavigationIndex from "components/NavigationIndex.vue";
 import { setCssVar } from "quasar";
 
 export default {
   name: "IndexPage",
-  components: { LanguageList, NavigationIndex, FindTract, InstallToHomeScreen },
+  components: {
+    DownloadAllTracts,
+    FindTract,
+    InstallToHomeScreen,
+    LanguageList,
+    NavigationIndex,
+  },
   mounted() {
     var tractFontSize = localStorage.getItem("tractFontSize");
     if (tractFontSize == null) {
