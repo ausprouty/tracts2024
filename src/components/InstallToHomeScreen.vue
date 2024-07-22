@@ -1,19 +1,43 @@
 <template>
   <div v-if="showInstallPrompt" class="install-pwa">
     <div class="install">
-      Add this app to your home screen. Then you can share the tracts you have
-      viewed even when there is no internet connection.
+      <p>Install this app on your device without going to an App store.</p>
+      <p>
+        You can install ALL of the tracts by clicking the button at the bottom
+        of this page OR you can wait until later and just install the tracts you
+        view when you have an internet connection.
+      </p>
+      <p>
+        Once installed, you can view tracts just like with any other app on your device.
+      </p>
     </div>
+
     <div class="q-pa-md">
       <div class="row justify-between">
-        <q-btn color="primary" @click="installApp" label="Install" />
         <q-btn
-          color="grey"
-          @click="skipInstallApp"
-          label="Do NOT Install"
+          v-if="isAndroid"
+          color="primary"
+          @click="installApp"
+          label="Install"
         />
+        <q-btn
+          v-if="isIOS"
+          color="primary"
+          @click="showIOSInstructions"
+          label="Install"
+        />
+        <q-btn color="primary" @click="showIOSInstructions" label="Install" />
+        <q-btn color="grey" @click="skipInstallApp" label="Do NOT Install" />
       </div>
     </div>
+  </div>
+  <div v-if="showIOSMessage" class="ios-message">
+    <p>
+      To install this app on your iPhone or iPad, locate the share icon ( it looks like this:
+      <img class="icon" src="/images/ios-share.png" alt="Share Icon" /> ) and
+      then select "Add to Home Screen".
+    </p>
+    <q-btn color="primary" @click="hideIOSMessage" label="OK" />
   </div>
 </template>
 
@@ -23,9 +47,13 @@ export default {
   data() {
     return {
       showInstallPrompt: false,
+      showIOSMessage: false,
+      isAndroid: false,
+      isIOS: false,
     };
   },
   mounted() {
+    this.detectPlatform();
     if (localStorage.getItem("tractBeforeInstallPromptFired") == null) {
       window.addEventListener(
         "beforeinstallprompt",
@@ -40,6 +68,11 @@ export default {
     );
   },
   methods: {
+    detectPlatform() {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      this.isAndroid = userAgent.includes("android");
+      this.isIOS = /iphone|ipad|ipod/.test(userAgent);
+    },
     handleBeforeInstallPrompt(event) {
       event.preventDefault();
       this.showInstallPrompt = true;
@@ -60,6 +93,13 @@ export default {
         });
       }
     },
+    showIOSInstructions() {
+      this.showIOSMessage = true;
+    },
+    hideIOSMessage() {
+      this.showIOSMessage = false;
+      this.showInstallPrompt = false;
+    },
     skipInstallApp() {
       this.deferredPrompt = null;
       this.showInstallPrompt = false;
@@ -69,18 +109,30 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  width: 20px; /* Adjust width to desired size */
+  height: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align icon vertically with text */
+}
+
 .install-pwa {
-  background-color:#ffc700;
+  background-color: #ffc700;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
 }
+.ios-message {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 .row {
   display: flex;
   flex-direction: row;
 }
-
 .justify-between {
   justify-content: space-between;
 }

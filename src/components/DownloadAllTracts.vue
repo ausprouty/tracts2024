@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       showDownload: true,
-      downloadText: 'Download All Tracts',
+      downloadText: 'Install All Tracts',
       buttonClass: 'yellow-button'
     };
   },
@@ -28,7 +28,7 @@ export default {
     },
     async getFilesIndex() {
       try {
-        this.downloadText = 'Downloading'
+        this.downloadText = 'Installing'
         this.buttonClass = 'grey-button'
         const response = await axios.get(
           "https://tracts.mylanguage.net.au/php/tractFileList.php"
