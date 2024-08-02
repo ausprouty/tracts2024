@@ -1,4 +1,4 @@
-{"languages": [
+[
   { "name": "Acholi", "file" : "AcoEng4" },
   { "name": "Afrikaans", "file" : "AfkEng4" },
   { "name": "Akuapwim Twi", "file" : "TwsEng4" },
@@ -103,4 +103,4 @@
   { "name": "Zaire Swahili", "file" : "Swa2Eng4" },
   { "name": "Zulu", "file" : "ZuuEng4" }
 ]
-}
+

@@ -9,8 +9,8 @@
       :language="language"
     />
     <DownloadAllTracts />
-    <div v-if="downloaded ">
-      <p class = "notice">(all tracts are available offline)</p>
+    <div v-if="downloaded">
+      <p class="notice">(all tracts are available offline)</p>
     </div>
   </q-page>
 </template>
@@ -53,28 +53,36 @@ export default {
       });
     }
     // see if all tracts are downloaded
-    downloaded = localStorage.getItem("downloaded");
-    if (downloaded == null) {
-      downloaded = false;
+    this.downloaded = localStorage.getItem("DownloadTimestamp");
+    if (this.downloaded == null) {
+      this.downloaded = false;
     } else {
-      downloaded = true;
+      this.downloaded = true;
     }
   },
   data() {
     return {
-      languages:[],
+      languages: [],
       downloaded: false,
     };
   },
   methods: {
     async loadLanguages() {
       try {
-        const response = await fetch('/tracts/languages.json');
+        const response = await fetch("/tracts/languages.json");
+        console.log(response);
         this.languages = await response.json();
       } catch (error) {
-        console.error('Failed to load languages:', error);
+        console.error("Failed to load languages:", error);
       }
     },
   },
 };
 </script>
+<style scoped>
+.notice {
+  margin-top:10px;
+  font-size: 0.8em;
+  color: #009da5;
+}
+</style>

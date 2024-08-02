@@ -123,7 +123,7 @@ export default {
   text-align: left;
 }
 .ios-message {
-  background-color: #fff;
+  background-color:#ffc700;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);

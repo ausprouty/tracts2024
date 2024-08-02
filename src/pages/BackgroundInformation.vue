@@ -1,6 +1,13 @@
 <template>
   <q-page padding>
     <NavigationBackground/>
+    <h3 class="background">Adding this App to your Device</h3>
+    <h4>Android Users</h4>
+    <p>You should have seen a screen like the one below.  If you did not press 'INSTALL' the first time you saw this, click this button and you will have another opportunity. </p>
+    <p><img src = "/images/AndroidInstall.png" width = "100%"> </p>
+    <h4>iOS Users</h4>
+    <p>You should have seen a screen like the one below. You can install this app anytime by following these instructions </p>
+    <p><img src = "/images/iOSInstall.png" width = "100%"> </p>
     <h3 class="background">Quick Start</h3>
     <ul>
       <li class="background">Type the first few letters of the language you want in the search bar (on some phones you may need to press 'Enter' before you see any results)</li>
@@ -55,7 +62,7 @@
     </p>
     <br /><br /><br />
     <p>
-      © 1985- 2023
+      © 1985 - 2024 <a href="http://hereslife.com">Here's Life</a> and
       <a href="http://powertochange.org.au">Power to Change</a> (formerly Campus
       Crusade for Christ Australia) A.C.N 002 310 796
     </p>
@@ -72,9 +79,19 @@ export default {
 </script>
 <style scoped>
 h3{
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight:bold;
   color: #005c86;
   line-height: 1.5rem;
 }
+h4{
+  font-size: 1rem;
+  font-weight:bold;
+  color: black;
+  line-height: 1.5rem;
+}
+.q-page{
+  margin-left:10px
+}
+
 </style>
