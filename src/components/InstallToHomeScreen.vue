@@ -54,7 +54,8 @@ export default {
   },
   mounted() {
     this.detectPlatform();
-    if (localStorage.getItem("tractBeforeInstallPromptFired") == null) {
+    if (localStorage.getItem("tractBeforeInstallPromptFired") === null) {
+      console.log ("Adding event listener");
       window.addEventListener(
         "beforeinstallprompt",
         this.handleBeforeInstallPrompt

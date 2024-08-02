@@ -3,7 +3,7 @@
     <NavigationBackground/>
     <h3 class="background">Adding this App to your Device</h3>
     <h4>Android Users</h4>
-    <p>You should have seen a screen like the one below.  If you did not press 'INSTALL' the first time you saw this, click this button and you will have another opportunity. </p>
+    <p>You should have seen a screen like the one below.  If you did not press 'INSTALL' the first time you saw this screen, <a href="#" @click="allowInstall">click here</a> and you will have another opportunity in a few minutes. </p>
     <p><img src = "/images/AndroidInstall.png" width = "100%"> </p>
     <h4>iOS Users</h4>
     <p>You should have seen a screen like the one below. You can install this app anytime by following these instructions </p>
@@ -75,6 +75,15 @@ import NavigationBackground from "components/NavigationBackground.vue";
 export default {
   name: "BackgroundInformation",
   components: { NavigationBackground },
+  methods: {
+    allowInstall() {
+      localStorage.removeItem("tractBeforeInstallPromptFired");
+      this.$router.push({
+        name: "Index",
+
+      });
+    },
+  },
 };
 </script>
 <style scoped>
