@@ -9,6 +9,9 @@
       :language="language"
     />
     <DownloadAllTracts />
+    <div v-if="downloaded ">
+      <p class = "notice">(all tracts are available offline)</p>
+    </div>
   </q-page>
 </template>
 
@@ -30,6 +33,9 @@ export default {
     NavigationIndex,
   },
   mounted() {
+    // load languages
+    this.loadLanguages();
+    // deal with the font size
     var tractFontSize = localStorage.getItem("tractFontSize");
     if (tractFontSize == null) {
       tractFontSize = "20px";
@@ -46,115 +52,29 @@ export default {
         },
       });
     }
+    // see if all tracts are downloaded
+    downloaded = localStorage.getItem("downloaded");
+    if (downloaded == null) {
+      downloaded = false;
+    } else {
+      downloaded = true;
+    }
   },
   data() {
     return {
-      languages: [
-        { name: "Acholi", file: "AcoEng4" },
-        { name: "Afrikaans", file: "AfkEng4" },
-        { name: "Akuapwim Twi", file: "TwsEng4" },
-        { name: "Albanian", file: "AlnEng4" },
-        { name: "Arabic", file: "AraEngM" },
-        { name: "Aymara", file: "AymEng4" },
-        { name: "Bambara", file: "BamEng4" },
-        { name: "Bengali", file: "BngEng4" },
-        { name: "Bicolano", file: "BclEng4" },
-        { name: "Brazilian Portuguese", file: "Por2Eng4" },
-        { name: "Bukusu", file: "BxkEng4" },
-        { name: "Bulgarian", file: "BulEng4" },
-        { name: "Burmese (village)", file: "BmsEngV0" },
-        { name: "Cambodian (village)", file: "KmrEngV0" },
-        { name: "Cebuano", file: "CebEng4" },
-        { name: "Changane", file: "ChaEng4" },
-        { name: "Chibemba", file: "BemEng4" },
-        { name: "Chinese (Simplified)", file: "ChnEng4" },
-        { name: "Chinese (Traditional)", file: "Chn1Eng4" },
-        { name: "Croatian", file: "SrcEng4" },
-        { name: "Czech", file: "CzcEng4" },
-        { name: "Danish", file: "DnsEng4" },
-        { name: "Dinka Bor", file: "DibEng4" },
-        { name: "Dinka", file: "DinEng4" },
-        { name: "Dutch", file: "DutEng4" },
-        { name: "Ekegussii", file: "GuzEng4" },
-        { name: "English", file: "Eng4" },
-        { name: "Estonian", file: "EstEng4" },
-        { name: "Farsi", file: "PesEngM" },
-        { name: "Fijian", file: "FjiEng4" },
-        { name: "Finnish", file: "FinEng4" },
-        { name: "French (special)", file: "FrnEngM" },
-        { name: "French", file: "FrnEngK" },
-        { name: "German", file: "GerEngK" },
-        { name: "Greek", file: "GrkEngK" },
-        { name: "Gujarati", file: "GjrEng4" },
-        { name: "Haitian", file: "HatEng4" },
-        { name: "Hausa", file: "HuaEng4" },
-        { name: "Hebrew", file: "HebEngJ" },
-        { name: "Hindi", file: "HndEng4" },
-        { name: "Hmong [blue]", file: "HmbEngV0" },
-        { name: "Hmong [white]", file: "HmwEngV0" },
-        { name: "Hungarian", file: "HngEng4" },
-        { name: "Ibo", file: "IgrEng4" },
-        { name: "Ilocano", file: "IloEng4" },
-        { name: "Indonesan (special)", file: "IndEngM" },
-        { name: "Indonesian", file: "IndEng4" },
-        { name: "Italian", file: "ItaEng4" },
-        { name: "Japanese", file: "JpnEng4" },
-        { name: "Kalenjin", file: "KalEng4" },
-        { name: "Kamba", file: "KikEng4" },
-        { name: "Kannada", file: "KvjEng4" },
-        { name: "Karen (village)", file: "KarEngV0" },
-        { name: "Kazakh", file: "KazEng4" },
-        { name: "Kinyarawandan", file: "RuaEng4" },
-        { name: "Konkani", file: "GomEng4" },
-        { name: "Korean", file: "KknEng4" },
-        { name: "Lahu (village)", file: "LahEngV0" },
-        { name: "Lao (village)", file: "LaoEngV0" },
-        { name: "Latvian", file: "LatEng4" },
-        { name: "Luba Kaonde", file: "KqnEng4" },
-        { name: "Lugandan", file: "LapEng4" },
-        { name: "Macedonian", file: "MkjEng4" },
-        { name: "Malagasy", file: "MexEng4" },
-        { name: "Mongolian", file: "KhkEng4" },
-        { name: "Nepalese", file: "NepEng4" },
-        { name: "Norwegian", file: "NorEng4" },
-        { name: "Nuer", file: "NusEng4" },
-        { name: "Oromo (central)", file: "Oro1Eng4" },
-        { name: "Pedi", file: "SrtEng4" },
-        { name: "Polish", file: "PolEng4" },
-        { name: "Romanian", file: "RumEng4" },
-        { name: "Runyoro", file: "NyoEng4" },
-        { name: "Russian (Central Asia)", file: "RusEngM" },
-        { name: "Russian", file: "RusEng4" },
-        { name: "Serbian", file: "SerEng4" },
-        { name: "Setswana", file: "SetEng4" },
-        { name: "Shona", file: "ShdEng4" },
-        { name: "Sinhala", file: "SinEng4" },
-        { name: "Siswati", file: "SwzEng4" },
-        { name: "Somali", file: "SomEng4" },
-        { name: "Sotho", file: "SsoEng4" },
-        { name: "Spanish", file: "Spn2Eng4" },
-        { name: "Swahili", file: "SwaEng4" },
-        { name: "Swedish", file: "SweEng4" },
-        { name: "Tamil", file: "TamEng4" },
-        { name: "Tagalog", file: "TagEng4" },
-        { name: "Thai", file: "ThjEng4" },
-        { name: "Thai (village)", file: "ThjEngV0" },
-        { name: "Tibetan", file: "TibEng4" },
-        { name: "Tongan", file: "TovEng4" },
-        { name: "Tsonga", file: "TsoEng4" },
-        { name: "Tswana", file: "TswEng4" },
-        { name: "Turkish", file: "TrkEngM" },
-        { name: "Tyap", file: "TyaEng4" },
-        { name: "Ukrainian", file: "UkrEng4" },
-        { name: "Urdu", file: "UrdEng4" },
-        { name: "Vietnamese (university)", file: "VieEng4" },
-        { name: "Vietnamese (village)", file: "VieEngV0" },
-        { name: "Xhosa", file: "XosEng4" },
-        { name: "Yiddish", file: "YidEngJ" },
-        { name: "Zaire Swahili", file: "Swa2Eng4" },
-        { name: "Zulu", file: "ZuuEng4" },
-      ],
+      languages:[],
+      downloaded: false,
     };
+  },
+  methods: {
+    async loadLanguages() {
+      try {
+        const response = await fetch('/tracts/languages.json');
+        this.languages = await response.json();
+      } catch (error) {
+        console.error('Failed to load languages:', error);
+      }
+    },
   },
 };
 </script>
