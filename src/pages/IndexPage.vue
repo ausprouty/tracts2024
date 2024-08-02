@@ -32,9 +32,9 @@ export default {
     LanguageList,
     NavigationIndex,
   },
-  mounted() {
+  async mounted() {
     // load languages
-    this.loadLanguages();
+    await this.loadLanguages();
     // deal with the font size
     var tractFontSize = localStorage.getItem("tractFontSize");
     if (tractFontSize == null) {

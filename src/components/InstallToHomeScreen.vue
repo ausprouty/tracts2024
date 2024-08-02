@@ -3,12 +3,12 @@
     <div class="install">
       <p>Install this app on your device without going to an App store.</p>
       <p>
-        You can install ALL of the tracts by clicking the button at the bottom
-        of this page OR you can wait until later and just install the tracts you
-        view when you have an internet connection.
+        Once installed, you can view tracts just like with any other app on your device.
       </p>
       <p>
-        Once installed, you can view tracts just like with any other app on your device.
+        You can install ALL of the tracts by clicking the button at the bottom
+        of this page OR just install the tracts you
+        view when you have an internet connection.
       </p>
     </div>
 
