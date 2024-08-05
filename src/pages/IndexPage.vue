@@ -10,7 +10,7 @@
     />
     <DownloadAllTracts />
     <div v-if="downloaded">
-      <p class="notice">(all tracts are available offline)</p>
+      <p class="notice">(All tracts are available offline)</p>
     </div>
   </q-page>
 </template>

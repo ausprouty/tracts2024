@@ -8,14 +8,14 @@
       <p>
         You can install ALL of the tracts by clicking the button at the bottom
         of this page OR just install the tracts you
-        view when you have an internet connection.
+        view when you have an internet connectioN.
       </p>
     </div>
 
     <div class="q-pa-md">
       <div class="row justify-between">
         <q-btn
-          v-if="isAndroid"
+          v-if="!isIOS"
           color="primary"
           @click="installApp"
           label="Install"
@@ -26,12 +26,12 @@
           @click="showIOSInstructions"
           label="Install"
         />
-        <q-btn color="primary" @click="showIOSInstructions" label="Install" />
+
         <q-btn color="grey" @click="skipInstallApp" label="Do NOT Install" />
       </div>
     </div>
   </div>
-  <div v-if="showIOSMessage" class="ios-message">
+  <div v-if="showIOSMessage" class="install-pwa">
     <p>
       To install this app on your iPhone or iPad, locate the share icon ( it looks like this:
       <img class="icon" src="/images/ios-share.png" alt="Share Icon" /> ) and
@@ -68,55 +68,76 @@ export default {
     );
   },
   methods: {
-    detectPlatform() {
-      const userAgent = window.navigator.userAgent.toLowerCase();
-      this.isAndroid = userAgent.includes("android");
-      this.isIOS = /iphone|ipad|ipod/.test(userAgent);
-    },
-    checkInstallPromptStatus() {
-      // Check if the install prompt was dismissed before
-      const dismissed = localStorage.getItem("installPromptDismissed") === "true";
-      this.showInstallPrompt = !dismissed;
-    },
-    handleBeforeInstallPrompt(event) {
-      event.preventDefault();
-      this.showInstallPrompt = true;
-      this.deferredPrompt = event;
-      localStorage.setItem("tractBeforeInstallPromptFired", true);
-    },
-    installApp() {
-      if (this.deferredPrompt) {
-        this.deferredPrompt.prompt();
-        this.deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === "accepted") {
-            console.log("User accepted the A2HS prompt");
-            this.showInstallPrompt = false;
-          } else {
-            console.log("User dismissed the A2HS prompt");
-            localStorage.setItem("installPromptDismissed", "true");
-          }
-          this.deferredPrompt = null;
-        });
-      }
-    },
-    showIOSInstructions() {
-      this.showIOSMessage = true;
-    },
-    hideIOSMessage() {
-      this.showIOSMessage = false;
-      this.showInstallPrompt = false;
-      localStorage.setItem("installPromptDismissed", "true");
-    },
-    skipInstallApp() {
-      this.deferredPrompt = null;
-      this.showInstallPrompt = false;
-      localStorage.setItem("installPromptDismissed", "true");
-    },
-    resetInstallPrompt() {
-      localStorage.removeItem("installPromptDismissed");
-      this.showInstallPrompt = true;
-    },
+  detectPlatform() {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    this.isAndroid = userAgent.includes("android");
+    this.isIOS = /iphone|ipad|ipod/.test(userAgent);
+    console.log("isAndroid", this.isAndroid);
+    console.log("isIOS", this.isIOS);
   },
+  checkInstallPromptStatus() {
+    const dismissed = localStorage.getItem("tractInstallPromptDismissed") === "true";
+    const lastDismissedTime = localStorage.getItem("tractInstallPromptDismissedTime");
+
+    // Check if it was dismissed a long time ago (e.g., more than 30 days)
+    const now = Date.now();
+    const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+
+    if (dismissed && lastDismissedTime && now - lastDismissedTime > thirtyDays) {
+      // Reset the dismissed status after 30 days
+      localStorage.removeItem("tractInstallPromptDismissed");
+      localStorage.removeItem("tractInstallPromptDismissedTime");
+      this.showInstallPrompt = true;
+    } else {
+      this.showInstallPrompt = !dismissed;
+    }
+
+    console.log("showInstallPrompt", this.showInstallPrompt);
+  },
+  handleBeforeInstallPrompt(event) {
+    event.preventDefault();
+    this.deferredPrompt = event;
+    this.showInstallPrompt = true;
+    localStorage.setItem("tractBeforeInstallPromptFired", true);
+    console.log("beforeinstallprompt event was fired.");
+  },
+  installApp() {
+    if (this.deferredPrompt) {
+      this.deferredPrompt.prompt();
+      this.deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          console.log("User accepted the A2HS prompt");
+          this.showInstallPrompt = false;
+        } else {
+          console.log("User dismissed the A2HS prompt");
+          localStorage.setItem("tractInstallPromptDismissed", "true");
+          localStorage.setItem("tractInstallPromptDismissedTime", Date.now());
+        }
+        this.deferredPrompt = null;
+      });
+    } else {
+      // Provide manual instructions
+      console.log("deferredPrompt is not available.");
+      this.showManualInstallInstructions();
+    }
+  },
+  showManualInstallInstructions() {
+    alert("Unfortunately, the install prompt cannot be triggered automatically at this time. You can manually add this app to your home screen by using your browser's menu.");
+  },
+  skipInstallApp() {
+    this.deferredPrompt = null;
+    this.showInstallPrompt = false;
+    localStorage.setItem("tractInstallPromptDismissed", "true");
+    localStorage.setItem("tractInstallPromptDismissedTime", Date.now());
+  },
+  resetInstallPrompt() {
+    localStorage.removeItem("tractInstallPromptDismissed");
+    localStorage.removeItem("tractInstallPromptDismissedTime");
+    this.showInstallPrompt = true;
+    console.log("Install prompt reset. User can be prompted again.");
+  },
+}
+
 };
 </script>
 
@@ -133,14 +154,9 @@ export default {
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
+  width: 100%
 }
-.ios-message {
-  background-color:#ffc700;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
+
 .row {
   display: flex;
   flex-direction: row;
