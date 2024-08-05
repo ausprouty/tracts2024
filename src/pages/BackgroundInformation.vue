@@ -78,6 +78,7 @@ export default {
   methods: {
     allowInstall() {
       localStorage.removeItem("tractBeforeInstallPromptFired");
+      localStorage.removeItem("tractInstallPromptDismissed");
       this.$router.push({
         name: "Index",
 

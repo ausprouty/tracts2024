@@ -50,17 +50,16 @@ export default {
       showIOSMessage: false,
       isAndroid: false,
       isIOS: false,
+      deferredPrompt: null,
     };
   },
   mounted() {
     this.detectPlatform();
-    if (localStorage.getItem("tractBeforeInstallPromptFired") === null) {
-      console.log ("Adding event listener");
-      window.addEventListener(
-        "beforeinstallprompt",
-        this.handleBeforeInstallPrompt
-      );
-    }
+    this.checkInstallPromptStatus();
+    window.addEventListener(
+      "beforeinstallprompt",
+      this.handleBeforeInstallPrompt
+    );
   },
   unmounted() {
     window.removeEventListener(
@@ -74,6 +73,11 @@ export default {
       this.isAndroid = userAgent.includes("android");
       this.isIOS = /iphone|ipad|ipod/.test(userAgent);
     },
+    checkInstallPromptStatus() {
+      // Check if the install prompt was dismissed before
+      const dismissed = localStorage.getItem("installPromptDismissed") === "true";
+      this.showInstallPrompt = !dismissed;
+    },
     handleBeforeInstallPrompt(event) {
       event.preventDefault();
       this.showInstallPrompt = true;
@@ -86,11 +90,12 @@ export default {
         this.deferredPrompt.userChoice.then((choiceResult) => {
           if (choiceResult.outcome === "accepted") {
             console.log("User accepted the A2HS prompt");
+            this.showInstallPrompt = false;
           } else {
             console.log("User dismissed the A2HS prompt");
+            localStorage.setItem("installPromptDismissed", "true");
           }
           this.deferredPrompt = null;
-          this.showInstallPrompt = false;
         });
       }
     },
@@ -100,10 +105,16 @@ export default {
     hideIOSMessage() {
       this.showIOSMessage = false;
       this.showInstallPrompt = false;
+      localStorage.setItem("installPromptDismissed", "true");
     },
     skipInstallApp() {
       this.deferredPrompt = null;
       this.showInstallPrompt = false;
+      localStorage.setItem("installPromptDismissed", "true");
+    },
+    resetInstallPrompt() {
+      localStorage.removeItem("installPromptDismissed");
+      this.showInstallPrompt = true;
     },
   },
 };
