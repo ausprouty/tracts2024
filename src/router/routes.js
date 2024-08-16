@@ -18,7 +18,12 @@ const routes = [
         path: "/background",
         component: () => import("src/pages/BackgroundInformation.vue"),
       },
-    
+      {
+        name: "DebugLocalStorage",
+        path: "/debug-local-storage",
+        component: () => import("src/pages/DebugLocalStorage.vue"),
+      },
+
     ],
   },
 

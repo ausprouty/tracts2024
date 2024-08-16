@@ -4,12 +4,16 @@
   <q-page padding>
     <div v-html="tractContent"></div>
   </q-page>
+  <DownloadAllTracts />
+    <div v-if="downloaded">
+      <p class="notice">(All tracts are available offline)</p>
+    </div>
 </template>
 
 <script>
 import { useTractStore } from "stores/TractStore";
 import NavigationTract from "components/NavigationTract.vue";
-import InstallToHomeScreen from "components/InstallToHomeScreen.vue";
+import InstallToHomeScreen from "src/components/InstallToHomeScreenOriginal.vue";
 import { getCssVar, setCssVar } from "quasar";
 
 function setCssVars(screenWidth) {
@@ -87,6 +91,13 @@ export default {
     };
   },
   created() {
+    // see if all tracts are downloaded
+    this.downloaded = localStorage.getItem("DownloadTimestamp");
+    if (this.downloaded == null) {
+      this.downloaded = false;
+    } else {
+      this.downloaded = true;
+    }
     const tractStore = useTractStore();
     // Watch the value in the store
     this.tractFontSizeWatcher = this.$watch(
