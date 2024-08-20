@@ -1,10 +1,18 @@
 <template>
-  <NavigationBackground/>
+  <NavigationBackground />
   <div class="storage-container">
     <h2>LocalStorage Contents</h2>
     <div v-if="Object.keys(storageItems).length">
       <div v-for="(value, key) in storageItems" :key="key" class="storage-item">
         <strong>{{ key }}:</strong> {{ value }}
+      </div>
+      <br><br>
+      <div>
+        <q-btn
+          @click="clearStorage"
+          label="Clear Local Storage"
+          color="primary"
+        />
       </div>
     </div>
     <div v-else>
@@ -20,7 +28,7 @@ export default {
   components: { NavigationBackground },
   data() {
     return {
-      storageItems: {}
+      storageItems: {},
     };
   },
   created() {
@@ -34,8 +42,17 @@ export default {
         items[key] = localStorage.getItem(key);
       }
       this.storageItems = items;
+    },
+
+    clearStorage() {
+      localStorage.clear();
+      this.storageItems = {};
+      this.$router.push({
+        name: "Index",
+
+      });
     }
-  }
+  },
 };
 </script>
 

@@ -11,9 +11,10 @@
 </template>
 
 <script>
+import DownloadAllTracts from "components/DownloadAllTracts.vue";
 import { useTractStore } from "stores/TractStore";
 import NavigationTract from "components/NavigationTract.vue";
-import InstallToHomeScreen from "src/components/InstallToHomeScreenOriginal.vue";
+import InstallToHomeScreen from "src/components/InstallToHomeScreen.vue";
 import { getCssVar, setCssVar } from "quasar";
 
 function setCssVars(screenWidth) {
@@ -82,7 +83,7 @@ function getLocalStorageTractFontSize() {
 
 export default {
   name: "ViewTract",
-  components: { NavigationTract, InstallToHomeScreen },
+  components: { NavigationTract, InstallToHomeScreen, DownloadAllTracts, },
   data() {
     return {
       tractContent: "",
@@ -180,6 +181,12 @@ p.village-text {
   margin: 0px;
 }
 p.center {
+  text-align: center;
+}
+p.notice {
+  margin-top:10px;
+  font-size: 0.8em;
+  color: #009da5;
   text-align: center;
 }
 .tract-lawheading {

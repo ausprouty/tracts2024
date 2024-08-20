@@ -97,12 +97,9 @@ export default {
     },
     // give person another opportunity to install
     allowInstall() {
-      localStorage.removeItem("tractBeforeInstallPromptFired");
-      localStorage.removeItem("tractInstallPromptDismissed");
-      localStorage.removeItem("tractInstallPromptDismissedTime");
+      localStorage.clear();
       this.$router.push({
         name: "Index",
-
       });
     },
   },

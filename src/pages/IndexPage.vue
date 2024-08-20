@@ -18,7 +18,7 @@
 <script>
 import DownloadAllTracts from "components/DownloadAllTracts.vue";
 import FindTract from "components/FindTract.vue";
-import InstallToHomeScreen from "src/components/InstallToHomeScreenOriginal.vue";
+import InstallToHomeScreen from "src/components/InstallToHomeScreen.vue";
 import LanguageList from "components/LanguageList.vue";
 import NavigationIndex from "components/NavigationIndex.vue";
 import { setCssVar } from "quasar";

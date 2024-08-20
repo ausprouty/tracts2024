@@ -55,12 +55,12 @@ export default {
   },
   mounted() {
     console.log ("InstallToHomeScreen mounted");
-    //this.detectPlatform();
-    //this.checkInstallPromptStatus();
-    //.addEventListener(
-     // "beforeinstallprompt",
-     // this.handleBeforeInstallPrompt
-    //);
+    this.detectPlatform();
+    this.checkInstallPromptStatus();
+    window.addEventListener(
+      "beforeinstallprompt",
+      this.handleBeforeInstallPrompt
+    );
   },
   unmounted() {
     console.log ("InstallToHomeScreen unmounted");
