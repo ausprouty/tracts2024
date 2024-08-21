@@ -103,13 +103,13 @@ export default {
       console.log("isIOS", this.isIOS);
     },
     considerShowingIOSMessage() {
-      const dismissed = localStorage.getItem("tractIOSMessageDismissed") === "true";
+      const dismissed = localStorage.getItem("tractInstallPromptDismissed") === "true";
       if (!dismissed) {
         this.showIOSMessage = true;
       }
     },
     considerShowingAndroidMessage() {
-      const dismissed = localStorage.getItem("tractAndroidMessageDismissed") === "true";
+      const dismissed = localStorage.getItem("tractInstallPromptDismissed") === "true";
       if (!dismissed) {
         console.log("considerShowingAndroidMessage");
         window.addEventListener(
