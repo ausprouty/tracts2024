@@ -54,13 +54,17 @@ export default {
     };
   },
   mounted() {
-    console.log ("InstallToHomeScreen mounted");
+    this.checkServiceWorkerSupport();
     this.detectPlatform();
-    this.checkInstallPromptStatus();
-    window.addEventListener(
-      "beforeinstallprompt",
-      this.handleBeforeInstallPrompt
-    );
+    if (this.isIOS) {
+      this.considerShowingIOSMessage();
+    }
+    if (this.isAndroid) {
+      this.considerShowingAndroidMessage();
+    }
+    if (!this.isIOS && !this.isAndroid) {
+      this.considerShowingWebMessage = true;
+    }
   },
   unmounted() {
     console.log ("InstallToHomeScreen unmounted");
@@ -70,30 +74,51 @@ export default {
     );
   },
   methods: {
+    checkServiceWorkerSupport() {
+      if ('serviceWorker' in navigator) {
+          console.log('Service workers are supported.');
+          navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+              console.log('Service Worker registered with scope:', registration.scope);
+              // Check if the service worker is active and controlling the page
+              if (navigator.serviceWorker.controller) {
+                  console.log('Service worker is active and controlling the page.');
+              } else {
+                  console.log('Service worker is registered but not yet controlling the page.');
+              }
+          })
+          .catch(function(error) {
+              console.error('Service Worker registration failed:', error);
+          });
+      } else {
+          console.log('Service workers are not supported in this browser.');
+      }
+    },
     detectPlatform() {
       const userAgent = window.navigator.userAgent.toLowerCase();
       this.isAndroid = userAgent.includes("android");
       this.isIOS = /iphone|ipad|ipod/.test(userAgent);
+      this.isIOS = true; // For testing
       console.log("isAndroid", this.isAndroid);
       console.log("isIOS", this.isIOS);
     },
-    checkInstallPromptStatus() {
-      const dismissed = localStorage.getItem("tractInstallPromptDismissed") === "true";
-      const lastDismissedTime = localStorage.getItem("tractInstallPromptDismissedTime");
-
-      const now = Date.now();
-      const thirtyDays = 30 * 24 * 60 * 60 * 1000;
-
-      if (dismissed && lastDismissedTime && now - lastDismissedTime > thirtyDays) {
-        localStorage.removeItem("tractInstallPromptDismissed");
-        localStorage.removeItem("tractInstallPromptDismissedTime");
-        this.showInstallPrompt = true;
-      } else {
-        this.showInstallPrompt = !dismissed;
+    considerShowingIOSMessage() {
+      const dismissed = localStorage.getItem("tractIOSMessageDismissed") === "true";
+      if (!dismissed) {
+        this.showIOSMessage = true;
       }
-
-      console.log("showInstallPrompt", this.showInstallPrompt);
     },
+    considerShowingAndroidMessage() {
+      const dismissed = localStorage.getItem("tractAndroidMessageDismissed") === "true";
+      if (!dismissed) {
+        console.log("considerShowingAndroidMessage");
+        window.addEventListener(
+          "beforeinstallprompt",
+          this.handleBeforeAndroidInstallPrompt
+        );
+      }
+    },
+
     handleBeforeInstallPrompt(event) {
       event.preventDefault();
       this.deferredPrompt = event;

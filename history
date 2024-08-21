@@ -24,3 +24,6 @@ quasar dev -m pwa
 
 quasar new component something
 
+quasar serve -https
+quasar serve --https --cert /farm/localhost.crt --key /farm/localhost.key
+
