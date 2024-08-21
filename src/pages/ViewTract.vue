@@ -1,6 +1,5 @@
 <template>
   <NavigationTract />
-  <InstallToHomeScreen />
   <q-page padding>
     <div v-html="tractContent"></div>
   </q-page>
@@ -14,7 +13,6 @@
 import DownloadAllTracts from "components/DownloadAllTracts.vue";
 import { useTractStore } from "stores/TractStore";
 import NavigationTract from "components/NavigationTract.vue";
-import InstallToHomeScreen from "src/components/InstallToHomeScreen.vue";
 import { getCssVar, setCssVar } from "quasar";
 
 function setCssVars(screenWidth) {
@@ -83,7 +81,7 @@ function getLocalStorageTractFontSize() {
 
 export default {
   name: "ViewTract",
-  components: { NavigationTract, InstallToHomeScreen, DownloadAllTracts, },
+  components: { NavigationTract, DownloadAllTracts, },
   data() {
     return {
       tractContent: "",

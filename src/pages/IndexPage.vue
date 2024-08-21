@@ -1,7 +1,6 @@
 <template>
   <q-page class="flex flex-center">
     <NavigationIndex />
-    <InstallToHomeScreen />
     <FindTract :languagesData="languages" />
     <LanguageList
       v-for="language in languages"
@@ -18,7 +17,6 @@
 <script>
 import DownloadAllTracts from "components/DownloadAllTracts.vue";
 import FindTract from "components/FindTract.vue";
-import InstallToHomeScreen from "src/components/InstallToHomeScreen.vue";
 import LanguageList from "components/LanguageList.vue";
 import NavigationIndex from "components/NavigationIndex.vue";
 import { setCssVar } from "quasar";
@@ -28,7 +26,6 @@ export default {
   components: {
     DownloadAllTracts,
     FindTract,
-    InstallToHomeScreen,
     LanguageList,
     NavigationIndex,
   },
