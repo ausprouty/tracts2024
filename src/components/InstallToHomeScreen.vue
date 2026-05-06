@@ -56,7 +56,10 @@ export default {
     };
   },
   mounted() {
-    this.checkServiceWorkerSupport();
+    //this.checkServiceWorkerSupport();
+
+    console.log("InstallToHomeScreen mounted");
+
     this.detectPlatform();
     if (this.isIOS) {
       this.considerShowingIOSMessage();
@@ -110,7 +113,7 @@ export default {
         console.log("considerShowingAndroidMessage");
         window.addEventListener(
           "beforeinstallprompt",
-          this.handleBeforeAndroidInstallPrompt
+          this.handleBeforeInstallPrompt
         );
       }
     },
@@ -126,10 +129,10 @@ export default {
       const dismissed =
         localStorage.getItem("tractInstallPromptDismissed") === "true";
       if (!dismissed) {
-        console.log("considerShowingWebMessage");
+        console.log("considerShowingWebMessage so adding event listener");
         window.addEventListener(
           "beforeinstallprompt",
-          this.handleBeforeAndroidInstallPrompt
+          this.handleBeforeInstallPrompt
         );
       }
     },

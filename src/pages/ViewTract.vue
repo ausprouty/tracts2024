@@ -143,82 +143,103 @@ export default {
 };
 </script>
 <style>
+/* Global Variables */
 :root {
   --primary-color: #009da5;
   --secondary-color: #ffc700;
-
-  --accent-color: #6c5ce7;
-  --accent-color: #dc143c;
   --accent-color: #50c878;
-  --accent-color: #f4c430;
-  --accent-color: #e0115f;
-  --accent-color: #4b0082;
-
   --background-color: #f8f9fa;
+  --text-color: #000;
+  --muted-color: #aaa;
+  --font-size-base: 1em;
+  --font-size-small: 0.8em;
+  --font-size-large: 1.2em;
+  --line-height: 1.3;
+  --padding-small: 5px;
+  --padding-medium: 15px;
+  --padding-large: 30px;
 }
+
+/* Layout & Containers */
 .container {
   display: flex;
-  justify-content: space-between; /* This will space the elements equally across the container */
+  justify-content: space-between; /* Space out elements evenly */
 }
 
+.background {
+  margin-left: var(--padding-medium);
+  margin-right: var(--padding-medium);
+}
+
+div.content {
+  padding: var(--padding-small);
+}
+
+/* Typography */
+p, h3 {
+  margin: 10px;
+  line-height: var(--line-height);
+  color: var(--text-color);
+}
+
+h3 {
+  margin-top: 1em;
+}
+
+p.notice {
+  margin-top: 10px;
+  font-size: var(--font-size-small);
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.tract-prayer,
+.tract-address,
+.bold {
+  font-weight: bold;
+}
+
+/* Text Alignments */
+p.center {
+  text-align: center;
+}
+
+p.rtl,
+li.rtl {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 img.village-image {
   width: 100%;
 }
+
+img.village-icon {
+  width: 100px;
+}
+
 img.tract-circle-image {
   width: 80%;
   max-width: 200px;
 }
-hr.village-page {
-  border: none;
-  border-top: 5px solid var(--accent-color);
-  margin: 10px 0; /* Adjust the padding (top and bottom) as needed */
+
+img.tract-image {
+  width: 70%;
+  max-width: 300px;
 }
 
-p.village-text {
-  margin: 0px;
-}
-p.center {
-  text-align: center;
-}
-p.notice {
-  margin-top:10px;
-  font-size: 0.8em;
-  color: #009da5;
-  text-align: center;
-}
-.tract-lawheading {
-  font-size: var(--FontSize11, 1.1em);
-  font-weight: bold;
+/* Section Styles */
+.section-title {
+  font-size: var(--font-size-large);
   color: var(--accent-color);
-}
-.tract-law,
-.mylanguage {
-  font-size: var(--FontSize11, 1.1em);
-  line-height: 1.3em;
-  font-weight: bold;
-  color: var(--accent-color);
-}
-.tract-law-number {
-  font-size: var(--FontSize30, 3em);
-  color: var(--accent-color);
-  width: var(--LawNumberWidth, 20px);
-}
-
-.mylanguage {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.tract-countryname,
-.tract-heading {
-  font-size: var(--FontSize11, 1.1em);
-  line-height: 1.3em;
-  color: var(--primary-color);
-  font-weight: bold;
-}
-
-.tractTitle {
-  text-align: right;
+  text-align: left;
+  background-color: #fff;
 }
 
 .section-intro,
@@ -226,215 +247,75 @@ p.notice {
 .section-law2,
 .section-law3,
 .section-law4,
-.section-circles,
-.div-circles,
-.section-prayer,
-.section-know,
-.section-nowthat,
-.section-grow,
-.section-feel,
-.section-church,
-.section-contact {
+.section-prayer {
   background-color: #fff;
   border: none;
 }
-.section-title {
-  background-color: #fff;
-  font-size: var(--FontSize12, 1.2em);
-  line-height: 1.3em;
-  color: var(--accent-color);
-  white-space: normal;
-  text-align: left;
-  position: relative;
-  display: table-cell;
-}
+
 .section-copyright {
   padding-top: 40px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: var(--padding-medium);
+  padding-right: var(--padding-medium);
 }
+
+/* Tables */
 table {
   table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
 }
-#tract-table {
-  border: none;
-  background-color: #fff;
-}
-tbody tr {
-  border-top: none;
-}
-.tract-header {
-  background-color: #fff;
-  border: none;
-}
-tr.tract-row {
+
+td, th {
+  padding: var(--padding-small);
   vertical-align: top;
 }
-td {
-  vertical-align: top;
-  padding-bottom: 1em;
-}
-td.side-left,
-th.side-left {
-  border-bottom: 0;
-  padding-left: 5px;
+
+td.side-left {
   width: 50%;
-  padding-right: 30px;
+  padding-right: var(--padding-large);
 }
-td.side-right,
-th.side-right {
-  border-bottom: 0;
+
+td.side-right {
   width: 50%;
-  padding-left: var(--SideRightPadding, 30px);
-  padding-right: 5px;
+  padding-left: var(--padding-large);
 }
-td.side-whole,
-th.side-whole {
-  border-bottom: 0;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-td.tract-image,
-td.tract-circle1,
-td.tract-circle2 {
-  text-align: center;
-}
-td.rtl {
-  text-align: right;
-}
+
+/* Links */
 a {
   color: #aa0040;
-}
-img.tract-image {
-  width: 70%;
-  max-width: 300px;
-}
-.tract-image-image {
-  max-width: 90%;
-  height: auto;
-  width: auto\9; /* ie8 */
-}
-.tract-image-circle-image {
-  max-width: 90%;
-  height: auto;
-  width: auto\9; /* ie8 */
 }
 
 a.tract-link {
   color: var(--accent-color);
 }
-.tract-verse {
-  font-size: var(--FontSize10, 1em);
-  line-height: 1.3em;
-  font-style: italic;
-  color: black;
+
+/* Specific Classes */
+.tract-lawheading {
+  font-size: var(--font-size-large);
+  font-weight: bold;
+  color: var(--accent-color);
 }
+
 .tract-text {
-  font-size: var(--FontSize10, 1em);
-  color: #000;
+  font-size: var(--font-size-base);
+  color: var(--text-color);
 }
-.tract-explanation {
-  font-size: var(--FontSize08, 0.8em);
-  color: #000;
+
+.tract-verse {
+  font-size: var(--font-size-base);
+  font-style: italic;
 }
-.tract-circle-image {
+
+p.tract-circle-heading-ltr {
   text-align: center;
-}
-p {
-  margin: 10px;
-}
-p.tract-circle-heading-ltr,
-p.tract-circle-heading-rtl,
-.tract-circle-heading {
-  font-size: var(--FontSize11, 1.1em);
+  font-size: var(--font-size-large);
   color: var(--primary-color);
-  line-height: 1.3em;
-  text-align: center;
-  font-weight: bold;
-}
-p.tract-circle-subhead,
-.tract-circle-image {
-  font-size: var(--FontSize10, 1em);
-  color: #000;
-  text-align: center;
-  font-weight: bold;
-}
-p.tract-circle-point-ltr,
-.tract-circle-text {
-  font-size: var(--FontSize10, 1em);
-  color: #000;
-  text-align: left;
-}
-p.tract-circle-point-rtl {
-  font-size: var(--FontSize10, 1em);
-  color: #000;
-  text-align: right;
-  direction: rtl;
-}
-p.rtl {
-  text-align: right;
-}
-.tract-circle-footer-ltr {
-  font-size: var(--FontSize10, 1em);
-  color: #000;
-  text-align: center;
-  font-weight: normal;
-}
-.tract-circle-footer-rtl {
-  font-size: var(--FontSize10, 1em);
-  color: #000;
-  text-align: center;
-  font-weight: normal;
-  direction: rtl;
-}
-.tract-circle-explanation,
-.tract-circle-explanation-ltr,
-.tract-circle-explanation-rtl {
-  font-size: var(--FontSize08, 0.8em);
-  color: #000;
-  text-align: center;
-}
-.tract-heading.translation,
-.tract-verse.translation,
-.translation {
-  color: #aaa;
-}
-.tract-prayer,
-.tract-address,
-.bold {
   font-weight: bold;
 }
 
-p.tract-circle-point-ltr,
-p.tract-circle-point-rtl {
-  text-indent: -1.3em;
-  padding-left: 1.3em;
-}
-.background {
-  margin-left: 15px;
-  margin-right: 15px;
-}
-li.background {
-  margin-left: 15px;
-}
-li.rtl {
-  direction: rtl;
-}
-h3 {
-  margin-top: 1em;
-}
-p.background {
-  font-size: var(--FontSize10, 1em);
-}
-div.content {
-  padding-left: 7px;
-  padding-right: 7px;
-}
-p.burmese,
-.burmese{
-  line-height:1.7em;
-}
-img.village-icon{
-  width:100px;
+/* Notice */
+p.notice {
+  font-size: var(--font-size-small);
+  color: var(--primary-color);
 }
 </style>
